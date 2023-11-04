@@ -10,8 +10,7 @@
    <children>
       <AnchorPane prefHeight="690.0" prefWidth="250.0" style="-fx-background-color: #051A2E;">
          <children>
-            <ImageView fitHeight="91.0" fitWidth="79.0" layo
-                       utX="85.0" layoutY="15.0">
+            <ImageView fitHeight="91.0" fitWidth="79.0" layoutX="85.0" layoutY="15.0">
                <image>
                   <Image url="@../image/dashboardicon.png" />
                </image>
