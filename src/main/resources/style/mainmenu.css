@@ -1,0 +1,8 @@
+.default_button{
+    -fx-background-radius:40;
+    -fx-background-color: #244042;
+}
+.select_button{
+    -fx-background-radius:40;
+    -fx-background-color: #ffffff;
+}

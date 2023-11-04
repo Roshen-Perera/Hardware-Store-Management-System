@@ -1,5 +1,6 @@
 package lk.ijse.Jayabima.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,16 +16,32 @@ import java.util.ResourceBundle;
 
 public class MainMenuFormController implements Serializable {
     @FXML
+    private JFXButton cusbtn;
+
+    @FXML
+    private JFXButton dashbtn;
+
+    @FXML
+    private JFXButton supbtn;
+
+    @FXML
+    private JFXButton empbtn;
+
+    @FXML
+    private JFXButton itembtn;
+
+    @FXML
+    private JFXButton orderbtn;
+
+    @FXML
+    private JFXButton placebtn;
+
+    @FXML
     private AnchorPane rootHome;
-    public void initialize() {
-        Node node = null;
-        try {
-            node = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void initialize() throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
         rootHome.getChildren().clear();
-        rootHome.getChildren().add(node);
+        rootHome.getChildren().add(rootNode);
     }
 
 
