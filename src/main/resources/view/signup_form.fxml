@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" maxHeight="690.0" maxWidth="1366.0" minHeight="690.0" minWidth="1366.0" prefHeight="690.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.SignUpPageController">
+    <children>
+        <Rectangle id="text-field" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="690.0" layoutX="683.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="683.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#051a2e" height="690.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="683.0" />
+        <ImageView fitHeight="418.0" fitWidth="375.0" layoutX="146.0" layoutY="148.0">
+            <image>
+                <Image url="@../image/jayabima.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="759.0" prefHeight="149.0" prefWidth="543.0" text="Login to Continue" textAlignment="CENTER" textFill="#0a3054">
+            <font>
+                <Font name="Segoe UI Bold" size="50.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtUserName" layoutX="871.0" layoutY="147.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a username" styleClass="text-field" stylesheets="@../style/login.css">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </TextField>
+        <JFXButton layoutX="961.0" layoutY="527.0" onAction="#btnSignUpOnAction" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: #051a2e; -fx-background-radius: 50;" text="Sign Up" textFill="#f6e8d4">
+            <font>
+                <Font name="System Bold" size="29.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+        <ImageView layoutX="819.0" layoutY="153.0">
+            <image>
+                <Image url="@../image/icons8-user-48.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="242.0">
+            <image>
+                <Image url="@../image/icons8-password-60.png" />
+            </image>
+        </ImageView>
+        <PasswordField fx:id="txtPassword" layoutX="871.0" layoutY="323.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a password" stylesheets="@../style/login.css">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </PasswordField>
+        <Label layoutX="842.0" layoutY="640.0" text="Already have an Account ? " textFill="#0a3054">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <JFXButton layoutX="1085.0" layoutY="633.0" onAction="#btnSignInFormOnAction" text="Sign In" textFill="#f6e8d4">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+      <TextField fx:id="txtMobile" layoutX="871.0" layoutY="236.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a Mobile Number" styleClass="text-field" stylesheets="@../style/login.css">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <ImageView layoutX="819.0" layoutY="334.0">
+         <image>
+            <Image url="@../image/icons8-user-48.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="423.0">
+         <image>
+            <Image url="@../image/icons8-password-60.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="txtRepeatPassword" layoutX="871.0" layoutY="417.0" prefHeight="61.0" prefWidth="342.0" promptText="Retype the password" stylesheets="@../style/login.css">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+    </children>
+</AnchorPane>

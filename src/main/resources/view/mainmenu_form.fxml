@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="690.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.MainMenuFormController">
+   <children>
+      <AnchorPane prefHeight="690.0" prefWidth="250.0" style="-fx-background-color: #051A2E;">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="79.0" layoutX="85.0" layoutY="15.0">
+               <image>
+                  <Image url="@../image/dashboardicon.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="171.0" prefHeight="52.0" prefWidth="250.0" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="224.0" prefHeight="52.0" prefWidth="250.0" text="Manage Customers" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="277.0" prefHeight="52.0" prefWidth="250.0" text="Manage Items" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="330.0" prefHeight="52.0" prefWidth="250.0" text="Manage Suppliers" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="383.0" prefHeight="52.0" prefWidth="250.0" text="Manage Employees" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="436.0" prefHeight="52.0" prefWidth="250.0" text="Manage Orders" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="489.0" prefHeight="52.0" prefWidth="250.0" text="Place Order" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="250.0" prefHeight="690.0" prefWidth="1116.0" />
+   </children>
+</AnchorPane>
