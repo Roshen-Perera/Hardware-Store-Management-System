@@ -30,6 +30,13 @@ public class LoginPageController {
     private TextField txtUserName;
 
     @FXML
+    private void launchGame(ActionEvent e) {
+        System.out.println("Launching...");
+    }
+
+
+
+    @FXML
     void btnForgotPasswordOnAction(ActionEvent event) {
 
     }

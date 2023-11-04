@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ManagecustomerFormController">
+<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ManagesupplierFormController">
     <children>
-        <Label layoutX="37.0" layoutY="20.0" text="Manage Customer">
+        <Label layoutX="37.0" layoutY="20.0" text="Manage Supplier">
             <font>
                 <Font name="System Bold" size="40.0" />
             </font>

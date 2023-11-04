@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="690.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.MainMenuFormController">
+<AnchorPane fx:id="rootNode" prefHeight="690.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.MainMenuFormController">
    <children>
       <AnchorPane prefHeight="690.0" prefWidth="250.0" style="-fx-background-color: #051A2E;">
          <children>
@@ -16,43 +15,43 @@
                   <Image url="@../image/dashboardicon.png" />
                </image>
             </ImageView>
-            <JFXButton layoutY="171.0" prefHeight="52.0" prefWidth="250.0" text="Dashboard" textFill="WHITE">
+            <JFXButton layoutY="171.0" onAction="#btnDashBoardOnAction" prefHeight="52.0" prefWidth="250.0" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="224.0" prefHeight="52.0" prefWidth="250.0" text="Manage Customers" textFill="WHITE">
+            <JFXButton layoutY="224.0" onAction="#btnManageCustomersOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Customers" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="277.0" prefHeight="52.0" prefWidth="250.0" text="Manage Items" textFill="WHITE">
+            <JFXButton layoutY="277.0" onAction="#btnManageItemsOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Items" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="330.0" prefHeight="52.0" prefWidth="250.0" text="Manage Suppliers" textFill="WHITE">
+            <JFXButton layoutY="330.0" onAction="#btnManageSuppliersOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Suppliers" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="383.0" prefHeight="52.0" prefWidth="250.0" text="Manage Employees" textFill="WHITE">
+            <JFXButton layoutY="383.0" onAction="#btnManageEmployees" prefHeight="52.0" prefWidth="250.0" text="Manage Employees" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="436.0" prefHeight="52.0" prefWidth="250.0" text="Manage Orders" textFill="WHITE">
+            <JFXButton layoutY="436.0" onAction="#btnManageOrders" prefHeight="52.0" prefWidth="250.0" text="Manage Orders" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="489.0" prefHeight="52.0" prefWidth="250.0" text="Place Order" textFill="WHITE">
+            <JFXButton layoutY="489.0" onAction="#btnPlaceOrder" prefHeight="52.0" prefWidth="250.0" text="Place Order" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="250.0" prefHeight="690.0" prefWidth="1116.0" />
+      <AnchorPane fx:id="rootHome" layoutX="250.0" prefHeight="690.0" prefWidth="1116.0" />
    </children>
 </AnchorPane>
