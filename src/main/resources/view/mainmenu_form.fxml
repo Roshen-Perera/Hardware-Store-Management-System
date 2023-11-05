@@ -15,40 +15,89 @@
                   <Image url="@../image/dashboardicon.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="dashbtn" alignment="CENTER_RIGHT" layoutY="171.0" onAction="#btnDashBoardOnAction" prefHeight="52.0" prefWidth="250.0" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="dashbtn" alignment="CENTER" layoutY="171.0" onAction="#btnDashBoardOnAction" prefHeight="52.0" prefWidth="250.0" text="   Dashboard" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-dashboard-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="cusbtn" layoutY="224.0" onAction="#btnManageCustomersOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Customers" textFill="WHITE">
+            <JFXButton fx:id="cusbtn" layoutY="224.0" onAction="#btnManageCustomersOnAction" prefHeight="52.0" prefWidth="250.0" text="   Manage Customers" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-customers-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="itembtn" layoutY="277.0" onAction="#btnManageItemsOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Items" textFill="WHITE">
+            <JFXButton fx:id="itembtn" layoutY="277.0" onAction="#btnManageItemsOnAction" prefHeight="52.0" prefWidth="250.0" text="   Manage Items" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-open-box-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="supbtn" layoutY="330.0" onAction="#btnManageSuppliersOnAction" prefHeight="52.0" prefWidth="250.0" text="Manage Suppliers" textFill="WHITE">
+            <JFXButton fx:id="supbtn" layoutY="330.0" onAction="#btnManageSuppliersOnAction" prefHeight="52.0" prefWidth="250.0" text="    Manage Suppliers" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-supplier-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="empbtn" layoutY="383.0" onAction="#btnManageEmployees" prefHeight="52.0" prefWidth="250.0" text="Manage Employees" textFill="WHITE">
+            <JFXButton fx:id="empbtn" layoutY="383.0" onAction="#btnManageEmployees" prefHeight="52.0" prefWidth="250.0" text="   Manage Employees" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-employee-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="orderbtn" layoutY="436.0" onAction="#btnManageOrders" prefHeight="52.0" prefWidth="250.0" text="Manage Orders" textFill="WHITE">
+            <JFXButton fx:id="orderbtn" layoutY="436.0" onAction="#btnManageOrders" prefHeight="52.0" prefWidth="250.0" text="   Manage Orders" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-minimum-order-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="placebtn" layoutY="489.0" onAction="#btnPlaceOrder" prefHeight="52.0" prefWidth="250.0" text="Place Order" textFill="WHITE">
+            <JFXButton fx:id="placebtn" layoutY="489.0" onAction="#btnPlaceOrder" prefHeight="52.0" prefWidth="250.0" text="   Place Order" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-shopping-cart-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
          </children>
       </AnchorPane>

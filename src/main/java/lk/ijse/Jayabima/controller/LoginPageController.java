@@ -29,10 +29,6 @@ public class LoginPageController {
     @FXML
     private TextField txtUserName;
 
-    @FXML
-    private void launchGame(ActionEvent e) {
-        System.out.println("Launching...");
-    }
 
 
 

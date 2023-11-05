@@ -1,15 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ManagecustomerFormController">
+<AnchorPane fx:id="rootHome" maxHeight="690.0" maxWidth="1116.0" minHeight="690.0" minWidth="1116.0" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ManagecustomerFormController">
     <children>
-        <Label layoutX="37.0" layoutY="20.0" text="Manage Customer">
+        <Label layoutX="37.0" layoutY="20.0" text="Manage Customer" textFill="#0a3054">
             <font>
-                <Font name="System Bold" size="40.0" />
+                <Font name="System Bold" size="30.0" />
             </font>
         </Label>
+      <TextField fx:id="txtId" layoutX="210.0" layoutY="110.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtName" layoutX="660.0" layoutY="110.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAddress" layoutX="210.0" layoutY="210.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtMobile" layoutX="660.0" layoutY="210.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="178.0" layoutY="117.0" text="ID" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="124.0" layoutY="217.0" text="Address" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="594.0" layoutY="117.0" text="Name" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="584.0" layoutY="217.0" text="Mobile" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="540.0" layoutY="307.0" onAction="#btnAddCustomerOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: red;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="640.0" layoutY="307.0" onAction="#btnUpdateCustomerOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="740.0" layoutY="307.0" onAction="#btnDeleteCustomerOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="840.0" layoutY="307.0" onAction="#btnClearCustomerOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: purple;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
     </children>
+   <effect>
+      <Reflection />
+   </effect>
 </AnchorPane>
