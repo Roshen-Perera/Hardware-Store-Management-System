@@ -4,17 +4,13 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class MainMenuFormController implements Serializable {
+public class ButtonBarFormController implements Serializable {
     @FXML
     private JFXButton cusbtn;
 

@@ -51,7 +51,7 @@ public class LoginPageController {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/mainmenu_form.fxml"));
+                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/buttonbar_form.fxml"));
                 Scene scene =new Scene(rootNode);
                 Stage primaryStage = (Stage) this.rootNode.getScene().getWindow();
                 primaryStage.setScene(scene);

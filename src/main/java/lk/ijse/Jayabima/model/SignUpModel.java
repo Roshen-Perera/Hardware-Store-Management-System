@@ -19,8 +19,6 @@ public class SignUpModel {
         pstm.setString(3, dto.getPassword());
         pstm.setString(4, dto.getRepeatPassword());
 
-        boolean isSaved = pstm.executeUpdate() > 0;
-
-        return isSaved;
+        return pstm.executeUpdate() > 0;
     }
 }
