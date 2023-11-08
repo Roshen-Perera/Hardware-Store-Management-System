@@ -62,13 +62,23 @@ public class SignUpPageController {
         String password = txtPassword.getText();
         String repeatpassword = txtRepeatPassword.getText();
 
+        if(name.isEmpty() || mobile.isEmpty() || password.isEmpty() || repeatpassword.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR,"Empty").show();
+            return;
+        }
+
+        if(!password.equals(repeatpassword)) {
+            new Alert(Alert.AlertType.ERROR,"Password Do not Match").show();
+            return;
+        }
+
+
         var dto = new SignUpDto(name, mobile, password, repeatpassword);
 
         try {
             boolean isSaved = SignUpModel.saveUser(dto);
             if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"User Saved");
-                clearFields();
+                new Alert(Alert.AlertType.CONFIRMATION,"User Saved").show();
             }
         }catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
