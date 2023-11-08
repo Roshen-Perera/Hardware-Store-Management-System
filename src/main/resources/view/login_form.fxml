@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" maxHeight="690.0" maxWidth="1366.0" minHeight="690.0" minWidth="1366.0" prefHeight="690.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.LoginPageController">
+<AnchorPane fx:id="rootNode" maxHeight="690.0" maxWidth="1366.0" minHeight="690.0" minWidth="1366.0" prefHeight="690.0" prefWidth="1366.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.LoginPageController">
    <children>
       <Rectangle id="text-field" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="690.0" layoutX="681.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="683.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#051a2e" height="690.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="683.0" />
@@ -25,7 +25,7 @@
             <Font name="Segoe UI Bold" size="50.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserName" layoutX="871.0" layoutY="239.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter your username" styleClass="text-field" stylesheets="@../style/login.css">
+      <TextField fx:id="txtUserName" layoutX="871.0" layoutY="239.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter your username" styleClass="text-field">
          <font>
             <Font size="25.0" />
          </font>
@@ -48,7 +48,7 @@
             <Image url="@../image/icons8-password-60.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="txtPassword" layoutX="871.0" layoutY="328.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter your password" stylesheets="@../style/login.css">
+      <PasswordField fx:id="txtPassword" layoutX="871.0" layoutY="328.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter your password">
          <font>
             <Font size="25.0" />
          </font>
