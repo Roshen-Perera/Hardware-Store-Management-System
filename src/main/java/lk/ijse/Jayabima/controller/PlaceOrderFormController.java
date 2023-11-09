@@ -1,4 +1,4 @@
 package lk.ijse.Jayabima.controller;
 
-public class PlaceorderFormController {
+public class PlaceOrderFormController {
 }

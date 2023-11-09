@@ -51,35 +51,35 @@ public class ButtonBarFormController implements Serializable {
 
     @FXML
     void btnManageCustomersOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/managecustomer_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/customer_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }
 
     @FXML
     void btnManageEmployees(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/manageemployee_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/employee_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }
 
     @FXML
     void btnManageItemsOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/manageitem_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/item_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }
 
     @FXML
     void btnManageOrders(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/manageorder_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/order_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }
 
     @FXML
     void btnManageSuppliersOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/managesupplier_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/supplier_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }

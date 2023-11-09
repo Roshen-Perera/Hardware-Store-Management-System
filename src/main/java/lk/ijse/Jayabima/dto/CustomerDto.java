@@ -1,12 +1,12 @@
 package lk.ijse.Jayabima.dto;
 
-public class ManagecustomerDto {
+public class CustomerDto {
     private String Id;
     private String Name;
     private String Address;
     private String Mobile;
 
-    public ManagecustomerDto(String id, String name, String address, String mobile) {
+    public CustomerDto(String id, String name, String address, String mobile) {
         Id = id;
         Name = name;
         Address = address;

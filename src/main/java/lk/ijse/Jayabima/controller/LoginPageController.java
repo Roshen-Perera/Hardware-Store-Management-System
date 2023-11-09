@@ -38,7 +38,7 @@ public class LoginPageController {
     }
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) throws IOException, SQLException {
+    void btnSignInOnAction(ActionEvent event) throws IOException, SQLException{
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         Connection connection = DbConnection.getInstance().getConnection();
@@ -47,6 +47,11 @@ public class LoginPageController {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
+
+            if(username.isEmpty() || password.isEmpty()) {
+                new Alert(Alert.AlertType.ERROR,"Empty").show();
+                return;
+            }
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -72,5 +77,4 @@ public class LoginPageController {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Jayabima Hardware");
     }
-
 }

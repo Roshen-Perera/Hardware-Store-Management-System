@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" maxHeight="690.0" maxWidth="1116.0" minHeight="690.0" minWidth="1116.0" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ManagecustomerFormController">
+<AnchorPane fx:id="rootHome" maxHeight="690.0" maxWidth="1116.0" minHeight="690.0" minWidth="1116.0" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.CustomerFormController">
     <children>
         <Label layoutX="37.0" layoutY="20.0" text="Manage Customer" textFill="#0a3054">
             <font>
@@ -73,6 +78,26 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
+      </JFXButton>
+      <TableView layoutX="200.0" layoutY="357.0" prefHeight="283.0" prefWidth="700.0">
+        <columns>
+          <TableColumn prefWidth="175.0" text="C1" />
+          <TableColumn minWidth="8.0" prefWidth="175.0" text="C2" />
+            <TableColumn prefWidth="175.0" text="C2" />
+            <TableColumn prefWidth="175.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="406.0" layoutY="107.0" onAction="#btnSearchOnAction">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="35.0">
+               <image>
+                  <Image url="@../image/icons8-search-48.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
       </JFXButton>
     </children>
    <effect>

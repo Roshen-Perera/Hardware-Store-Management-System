@@ -4,13 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import lk.ijse.Jayabima.dto.ManagecustomerDto;
-import lk.ijse.Jayabima.model.ManagecustomerModel;
+import lk.ijse.Jayabima.dto.CustomerDto;
+import lk.ijse.Jayabima.model.CustomerModel;
 
 import java.sql.SQLException;
 
-public class ManagecustomerFormController {
+public class CustomerFormController {
+    CustomerModel customerModel = new CustomerModel();
 
     @FXML
     private TextField txtAddress;
@@ -36,12 +36,12 @@ public class ManagecustomerFormController {
         String id = txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
-        String mobile = txtAddress.getText();
+        String mobile = txtMobile.getText();
 
-        var dto = new ManagecustomerDto(id, name, address, mobile);
+        var dto = new CustomerDto(id, name, address, mobile);
 
         try {
-            boolean isSaved = ManagecustomerModel.saveCustomer(dto);
+            boolean isSaved = CustomerModel.saveCustomer(dto);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Customer Saved");
                 clearFields();
@@ -64,5 +64,22 @@ public class ManagecustomerFormController {
     @FXML
     void btnUpdateCustomerOnAction(ActionEvent event) {
 
+    }
+
+    public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException {
+        String id = txtId.getText();
+        try {
+            CustomerDto customerDto = customerModel.searchCustomer(id);
+            if (customerDto != null) {
+                txtId.setText(customerDto.getId());
+                txtName.setText(customerDto.getName());
+                txtAddress.setText(customerDto.getAddress());
+                txtMobile.setText(customerDto.getMobile());
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "customer not found !").showAndWait();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 }
