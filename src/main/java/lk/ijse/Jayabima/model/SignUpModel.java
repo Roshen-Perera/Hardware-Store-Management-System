@@ -11,8 +11,8 @@ public class SignUpModel {
     public static boolean saveUser(SignUpDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO user VALUES(?, ?, ?, ?)";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+//        String sql = "INSERT INTO user VALUES(?, ?, ?, ?)";
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO user VALUES(?, ?, ?, ?");
 
         pstm.setString(1, dto.getUsername());
         pstm.setString(2, dto.getMobile());

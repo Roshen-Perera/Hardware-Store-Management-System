@@ -60,29 +60,31 @@ public class SignUpPageController {
         String name = txtUserName.getText();
         String mobile = txtMobile.getText();
         String password = txtPassword.getText();
-        String repeatpassword = txtRepeatPassword.getText();
+        String repeatPassword = txtRepeatPassword.getText();
 
 
 
 
-        var dto = new SignUpDto(name, mobile, password, repeatpassword);
+        var dto = new SignUpDto(name, mobile, password, repeatPassword);
 
         try {
-            if(name.isEmpty() || mobile.isEmpty() || password.isEmpty() || repeatpassword.isEmpty()) {
+            if(name.isEmpty() || mobile.isEmpty() || password.isEmpty() || repeatPassword.isEmpty()) {
                 new Alert(Alert.AlertType.ERROR,"Empty").show();
                 return;
             }
 
-            if(!password.equals(repeatpassword)) {
+            if(!password.equals(repeatPassword)) {
                 new Alert(Alert.AlertType.ERROR,"Password Do not Match").show();
                 return;
             }
+            clearFields();
             boolean isSaved = SignUpModel.saveUser(dto);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"User Saved").show();
             }
         }catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            clearFields();
         }
     }
 }

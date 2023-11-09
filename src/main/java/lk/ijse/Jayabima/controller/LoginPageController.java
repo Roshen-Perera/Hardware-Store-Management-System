@@ -30,6 +30,11 @@ public class LoginPageController {
     private TextField txtUserName;
 
 
+    private void clearFields() {
+        txtUserName.setText("");
+        txtPassword.setText("");
+    }
+
 
 
     @FXML
@@ -63,9 +68,11 @@ public class LoginPageController {
                 primaryStage.setTitle("Dashboard");
             } else {
                 new Alert(Alert.AlertType.ERROR, "oops! credentials are wrong!").show();
+                clearFields();
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            clearFields();
         }
     }
 
