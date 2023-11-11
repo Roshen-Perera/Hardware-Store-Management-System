@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.Jayabima.db.DbConnection;
 
+import javax.management.Notification;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -57,21 +58,19 @@ public class LoginPageController {
                 new Alert(Alert.AlertType.ERROR,"Empty").show();
                 return;
             }
-
             ResultSet resultSet = preparedStatement.executeQuery();
-
             if (resultSet.next()) {
                 Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/buttonbar_form.fxml"));
                 Scene scene =new Scene(rootNode);
                 Stage primaryStage = (Stage) this.rootNode.getScene().getWindow();
                 primaryStage.setScene(scene);
-                primaryStage.setTitle("Dashboard");
+                primaryStage.setTitle("Jayabima Hardware");
             } else {
                 new Alert(Alert.AlertType.ERROR, "oops! credentials are wrong!").show();
                 clearFields();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage());
             clearFields();
         }
     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.PlaceOrderFormController">
+    <children>
+        <Label layoutX="37.0" layoutY="20.0" text="Place Order">
+            <font>
+                <Font name="System Bold" size="40.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

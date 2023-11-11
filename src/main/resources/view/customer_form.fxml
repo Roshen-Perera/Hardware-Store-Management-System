@@ -81,10 +81,10 @@
       </JFXButton>
       <TableView layoutX="200.0" layoutY="357.0" prefHeight="283.0" prefWidth="700.0">
         <columns>
-          <TableColumn prefWidth="175.0" text="C1" />
-          <TableColumn minWidth="8.0" prefWidth="175.0" text="C2" />
-            <TableColumn prefWidth="175.0" text="C2" />
-            <TableColumn prefWidth="175.0" text="C2" />
+          <TableColumn fx:id="colId" prefWidth="175.0" text="ID" />
+          <TableColumn fx:id="colName" minWidth="8.0" prefWidth="175.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="175.0" text="Address" />
+            <TableColumn fx:id="colMobile" prefWidth="175.0" text="Mobile" />
         </columns>
       </TableView>
       <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="406.0" layoutY="107.0" onAction="#btnSearchOnAction">

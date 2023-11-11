@@ -26,6 +26,8 @@ public class SignUpPageController {
     @FXML
     private PasswordField txtRepeatPassword;
 
+
+
     @FXML
     private AnchorPane rootNode;
 

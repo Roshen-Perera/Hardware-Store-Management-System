@@ -3,6 +3,7 @@ package lk.ijse.Jayabima.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.model.CustomerModel;
@@ -10,6 +11,18 @@ import lk.ijse.Jayabima.model.CustomerModel;
 import java.sql.SQLException;
 
 public class CustomerFormController {
+
+    @FXML
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colId;
+
+    @FXML
+    private TableColumn<?, ?> colMobile;
+
+    @FXML
+    private TableColumn<?, ?> colName;
     CustomerModel customerModel = new CustomerModel();
 
     @FXML
@@ -23,6 +36,7 @@ public class CustomerFormController {
 
     @FXML
     private TextField txtName;
+
 
     private void clearFields() {
         txtId.setText("");
