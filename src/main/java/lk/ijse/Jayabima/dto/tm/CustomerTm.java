@@ -1,4 +1,4 @@
-package lk.ijse.Jayabima.dto;
+package lk.ijse.Jayabima.dto.tm;
 
 import lombok.*;
 
@@ -8,9 +8,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CustomerDto {
+
+public class CustomerTm {
     private String Id;
     private String Name;
     private String Address;
     private String Mobile;
+
 }

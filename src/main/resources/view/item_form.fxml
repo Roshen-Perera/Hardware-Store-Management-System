@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,67 +18,67 @@
                 <Font name="System Bold" size="30.0" />
             </font>
         </Label>
-      <TextField fx:id="txtitemCode" layoutX="220.0" layoutY="120.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtItemCode" layoutX="220.0" layoutY="102.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtItemName" layoutX="670.0" layoutY="120.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtItemName" layoutX="670.0" layoutY="102.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtitemUnitPrice" layoutX="220.0" layoutY="220.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtItemDesc" layoutX="220.0" layoutY="159.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtItemSellingPrice" layoutX="670.0" layoutY="220.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtItemQty" layoutX="670.0" layoutY="159.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="113.0" layoutY="127.0" text="Item Code" textFill="#0a3054">
+      <Label layoutX="113.0" layoutY="109.0" text="Item Code" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="227.0" text="Item Unit Price" textFill="#0a3054">
+      <Label layoutX="99.0" layoutY="166.0" text="Description" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="555.0" layoutY="127.0" text="Item Name" textFill="#0a3054">
+      <Label layoutX="599.0" layoutY="109.0" text="Brand" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="495.0" layoutY="227.0" text="Item Selling Price" textFill="#0a3054">
+      <Label layoutX="573.0" layoutY="166.0" text="Quantity" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="550.0" layoutY="317.0" onAction="#btnAddItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: red;" text="Add" textFill="WHITE">
+      <JFXButton layoutX="550.0" layoutY="315.0" onAction="#btnAddItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: red;" text="Add" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="650.0" layoutY="317.0" onAction="#btnUpdateItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
+      <JFXButton layoutX="650.0" layoutY="315.0" onAction="#btnUpdateItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="750.0" layoutY="317.0" onAction="#btnDeleteItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Delete" textFill="WHITE">
+      <JFXButton layoutX="750.0" layoutY="315.0" onAction="#btnDeleteItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="850.0" layoutY="317.0" onAction="#btnClearItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: purple;" text="Clear" textFill="WHITE">
+      <JFXButton layoutX="850.0" layoutY="315.0" onAction="#btnClearItemOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: purple;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="416.0" layoutY="117.0" onAction="#btnSearchOnAction">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="416.0" layoutY="99.0" onAction="#btnSearchOnAction">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="35.0">
                <image>
@@ -88,5 +90,35 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <TextField fx:id="txtItemUnitPrice" layoutX="220.0" layoutY="217.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtItemSupplierId" layoutX="670.0" layoutY="217.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="113.0" layoutY="224.0" text="Unit Price" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="551.0" layoutY="224.0" text="Supplier ID" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItem" layoutX="37.0" layoutY="367.0" prefHeight="283.0" prefWidth="1051.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="175.0" text="Item Code" />
+            <TableColumn fx:id="colBrand" minWidth="8.0" prefWidth="175.0" text="Brand" />
+            <TableColumn fx:id="colDescription" prefWidth="175.0" text="Description" />
+            <TableColumn fx:id="colQuantity" prefWidth="175.0" text="Quantity" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="175.0" text="Unit Price" />
+            <TableColumn fx:id="colSupplierId" prefWidth="175.0" text="Supplier ID" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>

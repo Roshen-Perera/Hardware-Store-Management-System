@@ -1,5 +1,4 @@
-package lk.ijse.Jayabima.dto;
-
+package lk.ijse.Jayabima.dto.tm;
 
 import lombok.*;
 
@@ -10,14 +9,13 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 
-public class ItemDto {
+public class ItemTm {
     private String itemCode;
     private String itemName;
     private String itemDesc;
     private int itemQty;
     private double itemUnitPrice;
     private String supplierId;
-
 }
 
 
