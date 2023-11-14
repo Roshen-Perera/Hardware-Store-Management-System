@@ -104,16 +104,22 @@ public class ButtonBarFormController implements Serializable {
 
     @FXML
     void btnPlaceOrder(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/order_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/placeorder_form.fxml"));
         this.rootHome.getChildren().clear();
         this.rootHome.getChildren().add(rootNode);
     }
     @FXML
     void btnLogoutOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/buttonbar_form.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
         Scene scene =new Scene(rootNode);
         Stage primaryStage = (Stage) this.rootNode.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Jayabima Hardware");
+    }
+
+    public void btnSalaryOnAction(ActionEvent actionEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/salary_form.fxml"));
+        this.rootHome.getChildren().clear();
+        this.rootHome.getChildren().add(rootNode);
     }
 }

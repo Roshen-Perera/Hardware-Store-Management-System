@@ -15,7 +15,7 @@
                   <Image url="@../image/dashboardicon.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="dashbtn" layoutY="171.0" onAction="#btnDashBoardOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Dashboard" textFill="WHITE">
+            <JFXButton fx:id="dashbtn" layoutY="146.0" onAction="#btnDashBoardOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Dashboard" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -27,7 +27,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="cusbtn" layoutY="224.0" onAction="#btnManageCustomersOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Customers" textFill="WHITE">
+            <JFXButton fx:id="cusbtn" layoutY="199.0" onAction="#btnManageCustomersOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Customers" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -39,19 +39,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="itembtn" layoutY="277.0" onAction="#btnManageItemsOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Items" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0">
-                     <image>
-                        <Image url="@../image/icons8-open-box-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="supbtn" layoutY="330.0" onAction="#btnManageSuppliersOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Suppliers" textFill="WHITE">
+            <JFXButton fx:id="supbtn" layoutY="252.0" onAction="#btnManageSuppliersOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Suppliers" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -63,7 +51,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="empbtn" layoutY="383.0" onAction="#btnManageEmployees" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Employees" textFill="WHITE">
+            <JFXButton fx:id="empbtn" layoutY="358.0" onAction="#btnManageEmployees" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Employees" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -75,19 +63,19 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="orderbtn" layoutY="436.0" onAction="#btnManageOrders" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Orders" textFill="WHITE">
+            <JFXButton fx:id="orderbtn" layoutY="464.0" onAction="#btnSalaryOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Salary" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0">
                      <image>
-                        <Image url="@../image/icons8-minimum-order-64.png" />
+                        <Image url="@../image/icons8-salary-50.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="placebtn" layoutY="489.0" onAction="#btnPlaceOrder" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Place Order" textFill="WHITE">
+            <JFXButton fx:id="placebtn" layoutY="517.0" onAction="#btnPlaceOrder" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Place Order" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -107,6 +95,30 @@
                   <ImageView fitHeight="40.0" fitWidth="40.0">
                      <image>
                         <Image url="@../image/icons8-logout-60.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="itembtn" layoutY="305.0" onAction="#btnManageItemsOnAction" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Items" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-open-box-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="orderbtn1" layoutY="411.0" onAction="#btnManageOrders" prefHeight="52.0" prefWidth="250.0" style="-fx-alignment: left;" stylesheets="@../style/sidepanel.css" text="     Manage Orders" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../image/icons8-minimum-order-64.png" />
                      </image>
                   </ImageView>
                </graphic>

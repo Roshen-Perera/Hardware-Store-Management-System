@@ -58,7 +58,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton ellipsisString="0" layoutX="1086.0" layoutY="623.0" onAction="#btnSignUpFormOnAction" ripplerFill="#070707" text="Sign Up" textFill="#f6e8d4">
+      <JFXButton ellipsisString="0" layoutX="1086.0" layoutY="623.0" onAction="#btnSignUpFormOnAction" ripplerFill="#070707" text="Sign Up" textFill="#bc804a">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

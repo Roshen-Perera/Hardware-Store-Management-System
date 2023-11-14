@@ -18,12 +18,14 @@ create table customer(
     cus_mobile varchar(10)not null
 );
 
-create table employee(
+create table Employee(
     emp_id varchar(5) primary key,
     emp_name varchar(20) not null,
+    emp_role varchar(10)not null,
     emp_address varchar(30)not null,
     emp_salary varchar(30)not null,
-    emp_role varchar(10)not null
+    emp_mobile varchar(10)not null
+
 );
 
 create table Salary(
