@@ -11,18 +11,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ItemFormController">
+<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.ItemFormController">
     <children>
         <Label layoutX="37.0" layoutY="20.0" text="Manage Item" textFill="#0a3054">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Label>
-      <TextField fx:id="txtItemCode" layoutX="220.0" layoutY="102.0" stylesheets="@../style/login.css">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
       <TextField fx:id="txtItemName" layoutX="670.0" layoutY="102.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
@@ -78,18 +73,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="416.0" layoutY="99.0" onAction="#btnSearchOnAction">
-         <graphic>
-            <ImageView fitHeight="36.0" fitWidth="35.0">
-               <image>
-                  <Image url="@../image/icons8-search-48.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </graphic>
-      </JFXButton>
       <TextField fx:id="txtItemUnitPrice" layoutX="220.0" layoutY="217.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
@@ -120,5 +103,32 @@
             <TableColumn fx:id="colSupplierId" prefWidth="175.0" text="Supplier ID" />
          </columns>
       </TableView>
+      <TextField fx:id="txtItemCode" layoutX="145.0" layoutY="314.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="345.0" layoutY="309.0" onAction="#btnSearchOnAction">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="35.0">
+               <image>
+                  <Image url="@../image/icons8-search-48.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="38.0" layoutY="321.0" text="Item Code" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblId" layoutX="220.0" layoutY="109.0" prefHeight="30.0" prefWidth="72.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

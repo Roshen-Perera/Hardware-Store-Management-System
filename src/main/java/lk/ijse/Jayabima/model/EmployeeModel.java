@@ -11,6 +11,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeModel {
+
+    private static String splitEmployeeID(String currentEmployeeID){
+        if (currentEmployeeID != null){
+            String [] split = currentEmployeeID.split("00");
+
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "I00" + id;
+        }else {
+            return "I001";
+        }
+    }
+
+    public static String generateNextEmployee() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT emp_id FROM employee ORDER BY emp_id DESC LIMIT 1";
+        PreparedStatement ptsm = connection.prepareStatement(sql);
+        ResultSet resultSet = ptsm.executeQuery();
+        if (resultSet.next()){
+            return splitEmployeeID(resultSet.getString(1));
+        }
+        return splitEmployeeID(null);
+    }
     public static boolean saveEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 

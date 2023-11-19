@@ -11,6 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemModel {
+    private String splitItemID(String currentEmployeeID){
+        if (currentEmployeeID != null){
+            String [] split = currentEmployeeID.split("00");
+
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "I00" + id;
+        }else {
+            return "I001";
+        }
+    }
+
+    public String generateNextItem() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT item_id FROM item ORDER BY item_id DESC LIMIT 1";
+        PreparedStatement ptsm = connection.prepareStatement(sql);
+        ResultSet resultSet = ptsm.executeQuery();
+        if (resultSet.next()){
+            return splitItemID(resultSet.getString(1));
+        }
+        return splitItemID(null);
+    }
 
     public List<ItemDto> getAllItems() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();

@@ -8,11 +8,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.Jayabima.dto.ItemDto;
+import lk.ijse.Jayabima.dto.tm.CustomerTm;
 import lk.ijse.Jayabima.dto.tm.ItemTm;
 import lk.ijse.Jayabima.model.ItemModel;
+import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ItemFormController {
 
@@ -57,13 +60,49 @@ public class ItemFormController {
     @FXML
     private TableColumn<?, ?> colUnitPrice;
 
+    @FXML
+    private Label lblId;
+
     ItemModel itemModel = new ItemModel();
 
     public void initialize() {
         loadAllItems();
         setCellValueFactory();
+        generateNextItemID();
+        tableListener();
     }
 
+    private boolean btnClearPressed = false;
+
+    private void  generateNextItemID(){
+        try {
+            String previousCustomerID = lblId.getText();
+            String customerID = itemModel.generateNextItem();
+            lblId.setText(customerID);
+            clearFields();
+            if (btnClearPressed){
+                lblId.setText(previousCustomerID);
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void tableListener() {
+        tblItem.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+//            System.out.println(newValue);
+            setData(newValue);
+        });
+    }
+
+    private void setData(ItemTm row) {
+        lblId.setText(row.getItemCode());
+        txtItemName.setText(row.getItemName());
+        txtItemDesc.setText(row.getItemDesc());
+        txtItemQty.setText(String.valueOf(row.getItemQty()));
+        txtItemUnitPrice.setText(String.valueOf(row.getItemUnitPrice()));
+        txtItemSupplierId.setText(row.getSupplierId());
+    }
     private void clearFields() {
         txtItemCode.setText("");
         txtItemName.setText("");
@@ -109,7 +148,7 @@ public class ItemFormController {
 
     @FXML
     void btnAddItemOnAction(ActionEvent event) {
-        String item_code = txtItemCode.getText();
+        String item_code = lblId.getText();
         String item_name = txtItemName.getText();
         String item_desc = txtItemDesc.getText();
         int item_qty = Integer.parseInt(txtItemQty.getText());
@@ -117,9 +156,12 @@ public class ItemFormController {
         String supplierId = txtItemSupplierId.getText();
 
 
-        var dto = new ItemDto(item_code, item_name, item_desc, item_qty, item_unitPrice, supplierId);
-
         try {
+            if(!validateItemDetails()) {
+                return;
+            }
+            clearFields();
+            var dto = new ItemDto(item_code, item_name, item_desc, item_qty, item_unitPrice, supplierId);
             boolean isSaved = itemModel.saveCustomer(dto);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item Saved").show();
@@ -138,7 +180,7 @@ public class ItemFormController {
 
     @FXML
     void btnDeleteItemOnAction(ActionEvent event) {
-        String item_code = txtItemCode.getText();
+        String item_code = lblId.getText();
         try {
             boolean isDeleted = itemModel.deleteCustomer(item_code);
             if(isDeleted){
@@ -177,17 +219,19 @@ public class ItemFormController {
 
     @FXML
     void btnUpdateItemOnAction(ActionEvent event) {
-        String item_code = txtItemCode.getText();
+        String item_code = lblId.getText();
         String item_name = txtItemName.getText();
         String item_desc = txtItemDesc.getText();
         int item_qty = Integer.parseInt(txtItemQty.getText());
         double item_unitPrice = Double.parseDouble(txtItemUnitPrice.getText());
         String supplierId = txtItemSupplierId.getText();
 
-
-        var dto = new ItemDto(item_code, item_name, item_desc, item_qty, item_unitPrice, supplierId);
-
         try {
+            if(!validateItemDetails()) {
+                return;
+            }
+            clearFields();
+            var dto = new ItemDto(item_code, item_name, item_desc, item_qty, item_unitPrice, supplierId);
             boolean isUpdated = itemModel.updateItem(dto);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Items are updated").show();
@@ -199,6 +243,43 @@ public class ItemFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
+    }
+    public boolean validateItemDetails() {
+        boolean isValid = true;
+
+        if (!Pattern.matches("[A-Za-z]{4,}", txtItemName.getText())) {
+            showErrorNotification("Invalid Item Name", "The item name you entered is invalid");
+            isValid = false;
+        }
+
+        if (!Pattern.matches("[A-Za-z]{4,}", txtItemDesc.getText())) {
+            showErrorNotification("Invalid Description", "The description you entered is invalid");
+            isValid = false;
+        }
+
+        if (!Pattern.matches("\\d+", txtItemQty.getText())) {
+            showErrorNotification("Invalid Quantity", "The quantity you entered is invalid");
+            isValid = false;
+        }
+
+        if (!Pattern.matches("\\d{4,}", txtItemUnitPrice.getText())) {
+            showErrorNotification("Invalid Salary", "The salary you entered is invalid");
+            isValid = false;
+        }
+
+        if (!Pattern.matches("S\\d{3,}", txtItemSupplierId.getText())) {
+            showErrorNotification("Invalid address", "The address you entered is invalid");
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    private void showErrorNotification(String title, String text) {
+        Notifications.create()
+                .title(title)
+                .text(text)
+                .showError();
     }
 
 }

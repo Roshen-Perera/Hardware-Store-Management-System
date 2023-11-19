@@ -11,29 +11,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.SupplierFormController">
+<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.SupplierFormController">
    <children>
       <Label layoutX="47.0" layoutY="30.0" text="Manage Supplier" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="220.0" layoutY="120.0" stylesheets="@../style/login.css">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
       <TextField fx:id="txtName" layoutX="670.0" layoutY="120.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtDescription" layoutX="220.0" layoutY="220.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtDescription" layoutX="220.0" layoutY="174.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtMobile" layoutX="670.0" layoutY="220.0" stylesheets="@../style/login.css">
+      <TextField fx:id="txtMobile" layoutX="670.0" layoutY="174.0" stylesheets="@../style/login.css">
          <font>
             <Font size="20.0" />
          </font>
@@ -43,7 +38,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="227.0" text="Description" textFill="#0a3054">
+      <Label layoutX="101.0" layoutY="181.0" text="Description" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -53,7 +48,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="594.0" layoutY="227.0" text="Mobile" textFill="#0a3054">
+      <Label layoutX="594.0" layoutY="181.0" text="Mobile" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -86,7 +81,12 @@
             <TableColumn fx:id="colMobile" prefWidth="175.0" text="Mobile" />
          </columns>
       </TableView>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="416.0" layoutY="117.0" onAction="#btnSearchOnAction">
+      <TextField fx:id="txtId" layoutX="220.0" layoutY="311.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="418.0" layoutY="309.0" onAction="#btnSearchOnAction">
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="35.0">
                <image>
@@ -98,5 +98,15 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label layoutX="145.0" layoutY="318.0" text="Search" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblId" layoutX="220.0" layoutY="127.0" prefHeight="30.0" prefWidth="66.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -11,6 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierModel {
+    private String splitSupplierID(String currentSupplierID){
+        if (currentSupplierID != null){
+            String [] split = currentSupplierID.split("00");
+
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "S00" + id;
+        }else {
+            return "S001";
+        }
+    }
+
+    public String generateNextSupplier() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT sup_id FROM supplier ORDER BY sup_id DESC LIMIT 1";
+        PreparedStatement ptsm = connection.prepareStatement(sql);
+        ResultSet resultSet = ptsm.executeQuery();
+        if (resultSet.next()){
+            return splitSupplierID(resultSet.getString(1));
+        }
+        return splitSupplierID(null);
+    }
     public List<SupplierDto> getAllSupplier() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "select * from supplier";

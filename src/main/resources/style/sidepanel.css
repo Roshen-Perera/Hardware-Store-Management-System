@@ -1,5 +1,11 @@
 .button:hover {
     -fx-background-color: #7c84a1;
 }
-
-
+.default_button{
+    -fx-background-radius:40;
+    -fx-background-color: #ffffff;
+}
+.select_button{
+    -fx-background-radius:40;
+    -fx-background-color: #ffffff;
+}
