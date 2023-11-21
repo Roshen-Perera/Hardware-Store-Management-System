@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="690.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.StockOrderDetailFormController">
+   <children>
+      <Label layoutX="35.0" layoutY="23.0" text="Stock Order Details" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Line endX="1015.5" layoutX="98.0" layoutY="88.0" startX="-100.0" stroke="#0a3054" />
+      <Label layoutX="950.0" layoutY="9.0" prefHeight="32.0" prefWidth="48.0" text="Date:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="949.0" layoutY="49.0" prefHeight="32.0" prefWidth="48.0" text="Time:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="1000.0" layoutY="9.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="999.0" layoutY="49.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblStockDetails" layoutX="197.0" layoutY="171.0" prefHeight="416.0" prefWidth="729.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="220.0" text="Stock Order ID" />
+          <TableColumn fx:id="colsupId" prefWidth="220.0" text="Supplier ID" />
+            <TableColumn fx:id="colDate" prefWidth="285.3333740234375" text="Stock Order Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

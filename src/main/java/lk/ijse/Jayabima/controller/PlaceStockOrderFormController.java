@@ -285,4 +285,15 @@ public class PlaceStockOrderFormController {
     void txtQtyOnAction(ActionEvent event) {
         btnAddToCartOnAction(event);
     }
+    @FXML
+    void btnStockOrderDetailsOnAction(ActionEvent event) throws IOException {
+        Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/stockorderdetail_form.fxml"));
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = new Stage();
+        stage.setTitle("Customer Manage");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
 }

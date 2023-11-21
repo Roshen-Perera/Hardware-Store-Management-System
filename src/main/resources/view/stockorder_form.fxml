@@ -145,5 +145,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXButton layoutX="789.0" layoutY="632.0" onAction="#btnStockOrderDetailsOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Stock Details" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

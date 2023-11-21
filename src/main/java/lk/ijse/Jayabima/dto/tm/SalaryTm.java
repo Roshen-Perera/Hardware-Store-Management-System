@@ -11,5 +11,5 @@ import lombok.*;
 public class SalaryTm {
     private String id;
     private String salary;
-    private RadioButton status;
+    private String status;
 }

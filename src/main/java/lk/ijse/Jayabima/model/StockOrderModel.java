@@ -1,9 +1,13 @@
 package lk.ijse.Jayabima.model;
 
 import lk.ijse.Jayabima.db.DbConnection;
+import lk.ijse.Jayabima.dto.EmployeeDto;
+import lk.ijse.Jayabima.dto.StockOrderDetailDto;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StockOrderModel {
     public String generateNextStockOrderId() throws SQLException {
@@ -41,4 +45,24 @@ public class StockOrderModel {
 
         return pstm.executeUpdate() > 0;
     }
+    public List<StockOrderDetailDto> getAllStockDetails() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "select * from stock_order";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet rs = pstm.executeQuery();
+
+        ArrayList<StockOrderDetailDto> dtoList = new ArrayList<>();
+        while (rs.next()) {
+            dtoList.add(
+                    new StockOrderDetailDto(
+                            rs.getString(1),
+                            rs.getString(2),
+                            rs.getString(3)
+                    )
+            );
+        }
+        return dtoList;
+
+    }
 }
+
