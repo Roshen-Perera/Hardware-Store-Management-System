@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.OrderFormController">
+<AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.PlaceStockOrderFormController">
     <children>
         <Label layoutX="37.0" layoutY="20.0" text="Stock Order" textFill="#0a3054">
             <font>
@@ -112,7 +112,7 @@
             <TableColumn fx:id="colItemCode" prefWidth="125.0" text="Code" />
             <TableColumn fx:id="colDescription" prefWidth="285.0" text="Description" />
             <TableColumn fx:id="colQty" prefWidth="185.0" text="Qty" />
-            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="156.33331298828125" text="Supplier ID" />
+            <TableColumn fx:id="colSupId" minWidth="0.0" prefWidth="156.33331298828125" text="Supplier ID" />
             <TableColumn fx:id="colAction" prefWidth="192.0" text="Action" />
          </columns>
       </TableView>

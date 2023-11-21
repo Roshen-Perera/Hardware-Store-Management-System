@@ -14,5 +14,4 @@ public class CustomerTm {
     private String Name;
     private String Address;
     private String Mobile;
-
 }

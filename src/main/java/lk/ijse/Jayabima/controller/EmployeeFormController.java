@@ -1,5 +1,8 @@
 package lk.ijse.Jayabima.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,8 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.dto.EmployeeDto;
+import lk.ijse.Jayabima.dto.SalaryDto;
 import lk.ijse.Jayabima.dto.tm.CustomerTm;
 import lk.ijse.Jayabima.dto.tm.EmployeeTm;
 import lk.ijse.Jayabima.model.CustomerModel;
@@ -16,6 +21,9 @@ import lk.ijse.Jayabima.model.EmployeeModel;
 import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -66,11 +74,34 @@ public class EmployeeFormController {
     @FXML
     private Label lblId;
 
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblTime;
+
+    ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
+
     public void initialize() {
         setCellValueFactory();
         loadAllCustomer();
         tableListener();
         generateNextCustomerID();
+        setDateAndTime();
+    }
+
+    private void setDateAndTime(){
+        Platform.runLater(() -> {
+            lblDate.setText(String.valueOf(LocalDate.now()));
+
+            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), event -> {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+                String timeNow = LocalTime.now().format(formatter);
+                lblTime.setText(timeNow);
+            }));
+            timeline.setCycleCount(Timeline.INDEFINITE);
+            timeline.play();
+        });
     }
 
     private boolean btnClearPressed = false;
@@ -165,6 +196,8 @@ public class EmployeeFormController {
             clearFields();
             var dto = new EmployeeDto(id, name, role, address, salary, mobile);
             boolean isSaved = EmployeeModel.saveEmployee(dto);
+            var dto1 = new SalaryDto(id, salary, null);
+            EmployeeModel.saveSalary(dto1);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Employee details Saved").show();
                 clearFields();
@@ -239,6 +272,8 @@ public class EmployeeFormController {
             clearFields();
             var dto = new EmployeeDto(id, name, role, address, salary, mobile);
             boolean isUpdated = EmployeeModel.updateEmployee(dto);
+            var dto1 = new SalaryDto(id, salary, null);
+            EmployeeModel.saveSalary(dto1);
             if(isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee details updated").show();;
                 clearFields();
@@ -254,27 +289,27 @@ public class EmployeeFormController {
     public boolean validateEmployeeDetails() {
         boolean isValid = true;
 
-        if (!Pattern.matches("[A-Za-z]{4,}", txtName.getText())) {
+        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtName.getText())) {
             showErrorNotification("Invalid Employee Name", "The employee name you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("[A-Za-z]{4,}", txtRole.getText())) {
+        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtRole.getText())) {
             showErrorNotification("Invalid Role", "The role you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("[A-Za-z]{4,}", txtAddress.getText())) {
+        if (!Pattern.matches("^[A-Za-z0-9'\\/\\.\\,\\s]{5,}$", txtAddress.getText())) {
             showErrorNotification("Invalid address", "The address you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("\\d{4,}", txtSalary.getText())) {
+        if (!Pattern.matches("^[0-9]+\\.?[0-9]*$", txtSalary.getText())) {
             showErrorNotification("Invalid Salary", "The salary you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("\\d{10}", txtMobile.getText())) {
+        if (!Pattern.matches("^(?:0|94|\\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$", txtMobile.getText())) {
             showErrorNotification("Invalid Mobile Number", "The mobile number you entered is invalid");
             isValid = false;
         }

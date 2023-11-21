@@ -54,7 +54,7 @@ public class SupplierModel {
         return dtoList;
     }
 
-    public static boolean saveSupplier(SupplierDto dto) throws SQLException {
+    public boolean saveSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "insert into supplier values (?, ?, ?, ?)";
@@ -68,7 +68,7 @@ public class SupplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static SupplierDto searchSupplier(String id) throws SQLException {
+    public SupplierDto searchSupplier(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "select * from supplier where sup_id=?";
@@ -91,7 +91,7 @@ public class SupplierModel {
         return dto;
     }
 
-    public static boolean deleteSupplier(String id) throws SQLException {
+    public boolean deleteSupplier(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "delete from supplier where sup_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class SupplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static boolean updateSupplier(SupplierDto dto) throws SQLException {
+    public boolean updateSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "update supplier set sup_name = ?, sup_description = ?, sup_contact = ? where sup_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);

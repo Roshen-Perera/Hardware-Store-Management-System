@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.Jayabima.db.DbConnection;
+import lk.ijse.Jayabima.dto.SignUpDto;
+import lk.ijse.Jayabima.model.SignUpModel;
 
 import javax.management.Notification;
 import java.io.IOException;
@@ -29,6 +31,9 @@ public class LoginPageController {
 
     @FXML
     private TextField txtUserName;
+
+    private SignUpModel signUpModel = new SignUpModel();
+
 
 
     private void clearFields() {
@@ -73,6 +78,7 @@ public class LoginPageController {
             new Alert(Alert.AlertType.ERROR, e.getMessage());
             clearFields();
         }
+        ButtonBarFormController.staticLabel.setText("Welcome "+txtUserName.getText()+" !");
     }
 
     @FXML

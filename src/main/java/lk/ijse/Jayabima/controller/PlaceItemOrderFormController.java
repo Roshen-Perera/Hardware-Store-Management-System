@@ -16,12 +16,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.dto.ItemDto;
-import lk.ijse.Jayabima.dto.PlaceOrderDto;
+import lk.ijse.Jayabima.dto.PlaceItemOrderDto;
 import lk.ijse.Jayabima.dto.tm.CustomerCartTm;
 import lk.ijse.Jayabima.model.CustomerModel;
 import lk.ijse.Jayabima.model.ItemModel;
-import lk.ijse.Jayabima.model.OrderModel;
-import lk.ijse.Jayabima.model.PlaceOrderModel;
+import lk.ijse.Jayabima.model.ItemOrderModel;
+import lk.ijse.Jayabima.model.PlaceItemOrderModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class PlaceOrderFormController {
+public class PlaceItemOrderFormController {
 
     @FXML
     private JFXButton btnAddToCart;
@@ -97,8 +97,8 @@ public class PlaceOrderFormController {
 
     private CustomerModel customerModel = new CustomerModel();
     private ItemModel itemModel = new ItemModel();
-    private OrderModel orderModel = new OrderModel();
-    private PlaceOrderModel placeOrderModel = new PlaceOrderModel();
+    private ItemOrderModel itemOrderModel = new ItemOrderModel();
+    private PlaceItemOrderModel placeItemOrderModel = new PlaceItemOrderModel();
     private ObservableList<CustomerCartTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
@@ -127,7 +127,7 @@ public class PlaceOrderFormController {
 
     private void generateNextOrderId() {
         try {
-            String orderId = orderModel.generateNextOrderId();
+            String orderId = itemOrderModel.generateNextOrderId();
             lblOrderId.setText(orderId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -161,12 +161,9 @@ public class PlaceOrderFormController {
                 if (colItemCode.getCellData(i).equals(code)) {
                     int col_qty = (int) colQty.getCellData(i);
                     qty += col_qty;
-                    tot = unitPrice * qty;
 
                     obList.get(i).setQty(qty);
-                    obList.get(i).setTot(tot);
 
-                    calculateTotal();
                     tblOrderCart.refresh();
                     return;
                 }
@@ -176,7 +173,6 @@ public class PlaceOrderFormController {
         obList.add(cartTm);
 
         tblOrderCart.setItems(obList);
-        calculateTotal();
         txtQty.clear();
     }
 
@@ -207,9 +203,9 @@ public class PlaceOrderFormController {
         }
 
         System.out.println("Place order form controller: " + customerCartTmList);
-        var placeOrderDto = new PlaceOrderDto(orderId,customerId, totalprice, date, customerCartTmList);
+        var placeOrderDto = new PlaceItemOrderDto(orderId,customerId, totalprice, date, customerCartTmList);
         try {
-            boolean isSuccess = placeOrderModel.placeOrder(placeOrderDto);
+            boolean isSuccess = placeItemOrderModel.placeOrder(placeOrderDto);
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
             }

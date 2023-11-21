@@ -2,6 +2,7 @@ package lk.ijse.Jayabima.model;
 
 import lk.ijse.Jayabima.db.DbConnection;
 import lk.ijse.Jayabima.dto.EmployeeDto;
+import lk.ijse.Jayabima.dto.SalaryDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -121,5 +122,39 @@ public class EmployeeModel {
         }
         return dtoList;
 
+    }
+    public static boolean saveSalary(SalaryDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "INSERT INTO salary VALUES(?, ?, ?)";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getId());
+        pstm.setString(2, dto.getSalary());
+        pstm.setString(3, dto.getStatus());
+
+        boolean isSaved = pstm.executeUpdate() > 0;
+
+        return isSaved;
+    }
+    public static boolean deleteSalary(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "delete from salary where emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+    public static boolean updateSalary(SalaryDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "update salary set salary_amount = ?, salary_status = ? where emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getId());
+        pstm.setString(2, dto.getSalary());
+        pstm.setString(3, dto.getStatus());
+
+        return pstm.executeUpdate() > 0;
     }
 }

@@ -2,13 +2,63 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.DashboardFormController">
    <children>
-      <Label layoutX="37.0" layoutY="20.0" text="Dashboard">
+      <Label layoutX="37.0" layoutY="20.0" text="Dashboard" textFill="#0a3054">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="37.0" layoutY="122.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: rgba(74, 105, 189,1.0); -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="9.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" text="Total Customers" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="cuslbl" layoutX="33.0" layoutY="41.0" prefHeight="73.0" prefWidth="77.0" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="233.0" layoutY="122.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: rgba(239, 87, 119,1.0); -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="9.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" text="Total Employees" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="emplbl" layoutX="31.0" layoutY="36.0" prefHeight="73.0" prefWidth="77.0" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Line endX="1015.5" layoutX="100.0" layoutY="85.0" startX="-100.0" stroke="#0a3054" />
+      <Label layoutX="952.0" layoutY="6.0" prefHeight="32.0" prefWidth="48.0" text="Date:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="951.0" layoutY="46.0" prefHeight="32.0" prefWidth="48.0" text="Time:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="1002.0" layoutY="6.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="1001.0" layoutY="46.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
    </children>

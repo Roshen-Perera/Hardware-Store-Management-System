@@ -2,6 +2,8 @@ package lk.ijse.Jayabima.model;
 
 import lk.ijse.Jayabima.db.DbConnection;
 import lk.ijse.Jayabima.dto.ItemDto;
+import lk.ijse.Jayabima.dto.tm.CustomerCartTm;
+import lk.ijse.Jayabima.dto.tm.StockCartTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -128,5 +130,48 @@ public class ItemModel {
         int isUpdated = pstm.executeUpdate();
 
         return isUpdated > 0;
+    }
+    public boolean updateItem(List<CustomerCartTm> customerCartTmList) throws SQLException {
+        for(CustomerCartTm tm : customerCartTmList) {
+            System.out.println("Item: " + tm);
+            if(!updateQty(tm.getCode(), tm.getQty())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean updateQty(String code, int qty) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE item SET item_qty = item_qty - ? WHERE item_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setInt(1, qty);
+        pstm.setString(2, code);
+
+        return pstm.executeUpdate() > 0; //false
+    }
+
+    public boolean updateQty1(String code, int qty) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE item SET item_qty = item_qty + ? WHERE item_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setInt(1, qty);
+        pstm.setString(2, code);
+
+        return pstm.executeUpdate() > 0; //false
+    }
+
+    public boolean updateItem1(List<StockCartTm> stockCartTmList) throws SQLException {
+        for(StockCartTm tm : stockCartTmList) {
+            System.out.println("Item: " + tm);
+            if(!updateQty1(tm.getCode(), tm.getQty())) {
+                return false;
+            }
+        }
+        return true;
     }
 }

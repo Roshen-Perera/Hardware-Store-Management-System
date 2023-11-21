@@ -9,11 +9,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootHome" prefHeight="690.0" prefWidth="1116.0" style="-fx-background-color: white;" styleClass="btnRoot" stylesheets="@../style/drop_shadow.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Jayabima.controller.SupplierFormController">
    <children>
-      <Label layoutX="47.0" layoutY="30.0" text="Manage Supplier" textFill="#0a3054">
+      <Label layoutX="37.0" layoutY="20.0" text="Manage Supplier" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -106,6 +107,27 @@
       <Label fx:id="lblId" layoutX="220.0" layoutY="127.0" prefHeight="30.0" prefWidth="66.0">
          <font>
             <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Line endX="1015.5" layoutX="99.0" layoutY="85.0" startX="-100.0" stroke="#0a3054" />
+      <Label layoutX="951.0" layoutY="6.0" prefHeight="32.0" prefWidth="48.0" text="Date:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="950.0" layoutY="46.0" prefHeight="32.0" prefWidth="48.0" text="Time:" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="1001.0" layoutY="6.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="1000.0" layoutY="46.0" prefHeight="32.0" prefWidth="104.0" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
    </children>

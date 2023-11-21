@@ -29,9 +29,9 @@ create table Employee(
 );
 
 create table Salary(
-    salary_amount varchar(20) not null,
-    salary_status varchar(30)not null,
     emp_id varchar(5),
+    salary_amount varchar(20) not null,
+    salary_status varchar(30),
     foreign key(emp_id)references Employee(emp_id)on update cascade on delete cascade
 );
 
@@ -56,35 +56,36 @@ create table Item(
 
 create table Orders(
     order_id varchar(5) primary key,
+    cus_id varchar(5),
     order_totalPrice double,
-    order_date varchar(30)not null
+    order_date varchar(30)not null,
+    foreign key (cus_id) references customer(cus_id) on update cascade on DELETE cascade
+
 );
 
-create table Supplier_order(
+create table Stock_order(
+    stockOrder_id varchar(5) primary key ,
     sup_id varchar(5),
     supOrder_date date,
     foreign key (sup_id) references supplier (sup_id)on UPDATE cascade on DELETE cascade
 
 );
 
-create table SupOrder_details(
+create table StockOrder_detail(
+    stockOrder_id varchar(5),
     item_id varchar(5),
     qty int,
-    unit_price double,
-    sup_id varchar(5),
     foreign key (item_id) references item(item_id) on update cascade on delete cascade,
-    foreign key (sup_id) references supplier(sup_id)on update cascade on delete cascade
+    foreign key (stockOrder_id) references stock_order(stockOrder_id)on update cascade on delete cascade
 
 );
 
 create table ItemOrder_detail(
     order_id varchar(5),
     item_id varchar(5),
-    cus_id varchar(5),
     selling_price double,
     foreign key(order_id)references Orders(order_id)on update cascade on delete cascade,
-    foreign key(item_id)references Item(item_id)on update cascade on delete cascade,
-    foreign key(cus_id)references customer(cus_id)on update cascade on delete cascade
+    foreign key(item_id)references Item(item_id)on update cascade on delete cascade
 );
 
 

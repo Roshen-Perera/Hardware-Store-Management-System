@@ -1,5 +1,8 @@
 package lk.ijse.Jayabima.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.Jayabima.dto.ItemDto;
 import lk.ijse.Jayabima.dto.tm.CustomerTm;
 import lk.ijse.Jayabima.dto.tm.ItemTm;
@@ -14,6 +18,9 @@ import lk.ijse.Jayabima.model.ItemModel;
 import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -63,6 +70,12 @@ public class ItemFormController {
     @FXML
     private Label lblId;
 
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblTime;
+
     ItemModel itemModel = new ItemModel();
 
     public void initialize() {
@@ -70,6 +83,21 @@ public class ItemFormController {
         setCellValueFactory();
         generateNextItemID();
         tableListener();
+        setDateAndTime();
+    }
+
+    private void setDateAndTime(){
+        Platform.runLater(() -> {
+            lblDate.setText(String.valueOf(LocalDate.now()));
+
+            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), event -> {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+                String timeNow = LocalTime.now().format(formatter);
+                lblTime.setText(timeNow);
+            }));
+            timeline.setCycleCount(Timeline.INDEFINITE);
+            timeline.play();
+        });
     }
 
     private boolean btnClearPressed = false;
@@ -248,12 +276,12 @@ public class ItemFormController {
     public boolean validateItemDetails() {
         boolean isValid = true;
 
-        if (!Pattern.matches("[A-Za-z]{4,}", txtItemName.getText())) {
+        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtItemName.getText())) {
             showErrorNotification("Invalid Item Name", "The item name you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("[A-Za-z]{4,}", txtItemDesc.getText())) {
+        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtItemDesc.getText())) {
             showErrorNotification("Invalid Description", "The description you entered is invalid");
             isValid = false;
         }
@@ -263,7 +291,7 @@ public class ItemFormController {
             isValid = false;
         }
 
-        if (!Pattern.matches("\\d{4,}", txtItemUnitPrice.getText())) {
+        if (!Pattern.matches("^[0-9]+\\.?[0-9]*$", txtItemUnitPrice.getText())) {
             showErrorNotification("Invalid Salary", "The salary you entered is invalid");
             isValid = false;
         }
