@@ -193,7 +193,7 @@ public class PlaceItemOrderFormController {
         String orderId = lblOrderId.getText();
         LocalDate date = LocalDate.parse(lblOrderDate.getText());
         String customerId = cmbCustomerId.getValue();
-        String totalprice = String.valueOf(calculateTotal());
+        String totalPrice = String.valueOf(calculateTotal());
 
         List<CustomerCartTm> customerCartTmList = new ArrayList<>();
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -203,7 +203,7 @@ public class PlaceItemOrderFormController {
         }
 
         System.out.println("Place order form controller: " + customerCartTmList);
-        var placeOrderDto = new PlaceItemOrderDto(orderId,customerId, totalprice, date, customerCartTmList);
+        var placeOrderDto = new PlaceItemOrderDto(orderId,customerId, totalPrice, date, customerCartTmList);
         try {
             boolean isSuccess = placeItemOrderModel.placeOrder(placeOrderDto);
             if (isSuccess) {

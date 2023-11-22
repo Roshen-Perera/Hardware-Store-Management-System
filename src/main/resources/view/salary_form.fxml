@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -35,12 +38,50 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="tblSalary" layoutX="191.0" layoutY="139.0" prefHeight="489.0" prefWidth="785.0">
+      <TableView fx:id="tblSalary" layoutX="166.0" layoutY="209.0" prefHeight="414.0" prefWidth="785.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="257.0" text="Employee ID" />
           <TableColumn fx:id="colSalary" prefWidth="283.0" text="Salary Amount" />
             <TableColumn fx:id="colStatus" prefWidth="246.0" text="Salary Status" />
         </columns>
       </TableView>
+      <JFXButton layoutX="934.0" layoutY="642.0" onAction="#btnSaveOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Save" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtStatus" layoutX="830.0" layoutY="120.0" prefHeight="44.0" prefWidth="120.0" stylesheets="@../style/login.css">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="166.0" layoutY="127.0" text="ID : " textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="752.0" layoutY="127.0" text="Status : " textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmployeeId" layoutX="206.0" layoutY="127.0" prefHeight="30.0" prefWidth="95.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="377.0" layoutY="127.0" text="Salary Amount : " textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalary" layoutX="536.0" layoutY="127.0" prefHeight="30.0" prefWidth="95.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

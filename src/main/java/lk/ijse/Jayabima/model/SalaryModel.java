@@ -31,4 +31,16 @@ public class SalaryModel {
         return dtoList;
 
     }
+
+    public boolean updateStatus(SalaryDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "update salary set salary_amount = ?, salary_status = ? where emp_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, dto.getId());
+        pstm.setString(2, dto.getSalary());
+        pstm.setString(3, dto.getStatus());
+
+        return pstm.executeUpdate() > 0;
+    }
 }

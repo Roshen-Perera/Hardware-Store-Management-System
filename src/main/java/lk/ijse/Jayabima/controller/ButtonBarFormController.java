@@ -77,7 +77,6 @@ public class ButtonBarFormController implements Serializable {
         this.itembtn.getStyleClass().remove("select_button");
         this.empbtn.getStyleClass().remove("select_button");
         this.orderbtn.getStyleClass().remove("select_button");
-        this.salarybtn.getStyleClass().add("select_button");
         this.placebtn.getStyleClass().remove("select_button");
 
         this.dashbtn.getStyleClass().add("default_button");
@@ -86,7 +85,6 @@ public class ButtonBarFormController implements Serializable {
         this.itembtn.getStyleClass().add("default_button");
         this.empbtn.getStyleClass().add("default_button");
         this.orderbtn.getStyleClass().add("default_button");
-        this.salarybtn.getStyleClass().add("default_button");
         this.placebtn.getStyleClass().add("default_button");
 
         mainFormBtn.getStyleClass().remove("default_button");
@@ -155,12 +153,5 @@ public class ButtonBarFormController implements Serializable {
         Stage primaryStage = (Stage) this.rootNode.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Jayabima Hardware");
-    }
-
-    public void btnSalaryOnAction(ActionEvent actionEvent) throws IOException {
-        selectCss(salarybtn);
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/salary_form.fxml"));
-        this.rootHome.getChildren().clear();
-        this.rootHome.getChildren().add(rootNode);
     }
 }

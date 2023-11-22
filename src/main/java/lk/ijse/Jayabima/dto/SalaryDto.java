@@ -1,5 +1,6 @@
 package lk.ijse.Jayabima.dto;
 
+import javafx.scene.control.ComboBox;
 import lombok.*;
 
 @NoArgsConstructor

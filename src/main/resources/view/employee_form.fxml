@@ -152,5 +152,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <JFXButton layoutX="972.0" layoutY="325.0" onAction="#btnSalaryDetailsOnAction" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: purple;" text="Salary Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

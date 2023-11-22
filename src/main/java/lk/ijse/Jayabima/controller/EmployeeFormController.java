@@ -7,9 +7,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.dto.EmployeeDto;
@@ -20,6 +24,7 @@ import lk.ijse.Jayabima.model.CustomerModel;
 import lk.ijse.Jayabima.model.EmployeeModel;
 import org.controlsfx.control.Notifications;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -80,6 +85,8 @@ public class EmployeeFormController {
     @FXML
     private Label lblTime;
 
+    EmployeeModel employeeModel = new EmployeeModel();
+
     ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
     public void initialize() {
@@ -108,7 +115,7 @@ public class EmployeeFormController {
     private void generateNextCustomerID(){
         try {
             String previousEmployeeID = lblId.getText();
-            String employeeID = EmployeeModel.generateNextEmployee();
+            String employeeID = employeeModel.generateNextEmployee();
             lblId.setText(employeeID);
             clearFields();
             if (btnClearPressed){
@@ -195,16 +202,16 @@ public class EmployeeFormController {
             }
             clearFields();
             var dto = new EmployeeDto(id, name, role, address, salary, mobile);
-            boolean isSaved = EmployeeModel.saveEmployee(dto);
-            var dto1 = new SalaryDto(id, salary, null);
-            EmployeeModel.saveSalary(dto1);
+            boolean isSaved = employeeModel.saveEmployee(dto);
+            var dto1 = new SalaryDto(id, salary, "");
+            employeeModel.saveSalary(dto1);
             if (isSaved){
                 new Alert(Alert.AlertType.CONFIRMATION,"Employee details Saved").show();
                 clearFields();
                 loadAllCustomer();
                 generateNextCustomerID();
             } else {
-                new Alert(Alert.AlertType.ERROR, "Employee details not saved").show();;
+                new Alert(Alert.AlertType.ERROR, "Employee details not saved").show();
             }
         }catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -222,7 +229,8 @@ public class EmployeeFormController {
         String id  = lblId.getText();
 
         try {
-            boolean isDeleted = EmployeeModel.deleteEmployee(id);
+            boolean isDeleted = employeeModel.deleteEmployee(id);
+            employeeModel.deleteSalary(id);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee Deleted").show();
                 clearFields();
@@ -240,7 +248,7 @@ public class EmployeeFormController {
     void btnSearchOnAction(ActionEvent event) {
         String id = txtId.getText();
         try {
-            EmployeeDto employeeDto = EmployeeModel.searchEmployee(id);
+            EmployeeDto employeeDto = employeeModel.searchEmployee(id);
             if (employeeDto != null) {
                 txtId.setText(employeeDto.getId());
                 txtName.setText(employeeDto.getName());
@@ -271,9 +279,9 @@ public class EmployeeFormController {
             }
             clearFields();
             var dto = new EmployeeDto(id, name, role, address, salary, mobile);
-            boolean isUpdated = EmployeeModel.updateEmployee(dto);
-            var dto1 = new SalaryDto(id, salary, null);
-            EmployeeModel.saveSalary(dto1);
+            boolean isUpdated = employeeModel.updateEmployee(dto);
+            var dto1 = new SalaryDto(id, salary, "");
+            employeeModel.updateSalary(dto1);
             if(isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee details updated").show();;
                 clearFields();
@@ -322,5 +330,17 @@ public class EmployeeFormController {
                 .title(title)
                 .text(text)
                 .showError();
+    }
+
+    @FXML
+    void btnSalaryDetailsOnAction(ActionEvent event) throws IOException {
+        Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/salary_form.fxml"));
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = new Stage();
+        stage.setTitle("Employee Salary Details");
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
     }
 }

@@ -5,10 +5,9 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import lk.ijse.Jayabima.dto.SalaryDto;
@@ -22,6 +21,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SalaryFormController {
+
+    @FXML
+    private TextField txtStatus;
+
+    @FXML
+    private Label lblEmployeeId;
+
+    @FXML
+    private Label lblSalary;
 
     @FXML
     private TableColumn<?, ?> colId;
@@ -41,10 +49,13 @@ public class SalaryFormController {
     @FXML
     private TableView<SalaryTm> tblSalary;
 
+    SalaryModel salaryModel = new SalaryModel();
+
     public void initialize(){
         setDateAndTime();
         setCellValueFactory();
         loadAllSalary();
+        tableListener();
     }
     private void setDateAndTime(){
         Platform.runLater(() -> {
@@ -84,6 +95,39 @@ public class SalaryFormController {
             tblSalary.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void setData(SalaryTm row) {
+        lblEmployeeId.setText(row.getId());
+        lblSalary.setText(row.getSalary());
+        txtStatus.setText("");
+    }
+
+    private void tableListener() {
+        tblSalary.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+//            System.out.println(newValue);
+            setData(newValue);
+        });
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
+        String empId = lblEmployeeId.getText();
+        String salary = lblSalary.getText();
+        String status = txtStatus.getText();
+
+        var dto = new SalaryDto(empId, salary, status);
+        try {
+            boolean isSaved = salaryModel.updateStatus(dto);
+            if(isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION,"Salary Status Saved").show();
+//                clearFields();
+                loadAllSalary();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Salary Status not saved").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 }

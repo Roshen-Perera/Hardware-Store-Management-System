@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EmployeeModel {
 
-    private static String splitEmployeeID(String currentEmployeeID){
+    private String splitEmployeeID(String currentEmployeeID){
         if (currentEmployeeID != null){
             String [] split = currentEmployeeID.split("00");
 
@@ -25,7 +25,7 @@ public class EmployeeModel {
         }
     }
 
-    public static String generateNextEmployee() throws SQLException {
+    public String generateNextEmployee() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT emp_id FROM employee ORDER BY emp_id DESC LIMIT 1";
@@ -36,7 +36,7 @@ public class EmployeeModel {
         }
         return splitEmployeeID(null);
     }
-    public static boolean saveEmployee(EmployeeDto dto) throws SQLException {
+    public boolean saveEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO Employee VALUES(?, ?, ?, ?, ?, ?)";
@@ -53,7 +53,7 @@ public class EmployeeModel {
 
         return isSaved;
     }
-    public static boolean deleteEmployee(String id) throws SQLException {
+    public boolean deleteEmployee(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "delete from Employee where emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -62,7 +62,7 @@ public class EmployeeModel {
 
         return pstm.executeUpdate() > 0;
     }
-    public static boolean updateEmployee(EmployeeDto dto) throws SQLException {
+    public boolean updateEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "update Employee set emp_name = ?, emp_role = ?, emp_address = ?, emp_salary = ?, emp_mobile = ? where emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class EmployeeModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public static EmployeeDto searchEmployee(String id) throws SQLException {
+    public EmployeeDto searchEmployee(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "select * from employee where emp_id=?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class EmployeeModel {
         return dtoList;
 
     }
-    public static boolean saveSalary(SalaryDto dto) throws SQLException {
+    public boolean saveSalary(SalaryDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO salary VALUES(?, ?, ?)";
@@ -137,7 +137,7 @@ public class EmployeeModel {
 
         return isSaved;
     }
-    public static boolean deleteSalary(String id) throws SQLException {
+    public boolean deleteSalary(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "delete from salary where emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -146,7 +146,7 @@ public class EmployeeModel {
 
         return pstm.executeUpdate() > 0;
     }
-    public static boolean updateSalary(SalaryDto dto) throws SQLException {
+    public boolean updateSalary(SalaryDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "update salary set salary_amount = ?, salary_status = ? where emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
