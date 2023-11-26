@@ -21,12 +21,15 @@ public class ItemOrderDetailModel {
     private boolean saveOrderDetails(String orderId, CustomerCartTm tm) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO itemorder_detail VALUES(?, ?, ?)";
+        String sql = "INSERT INTO itemorder_detail VALUES(?, ?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, orderId);
         pstm.setString(2, tm.getCode());
-        pstm.setDouble(3, tm.getUnitPrice());
+        pstm.setString(3, tm.getName());
+        pstm.setString(4, tm.getDescription());
+        pstm.setInt(5, tm.getQty());
+        pstm.setDouble(6, tm.getUnitPrice());
 
         return pstm.executeUpdate() > 0;
     }

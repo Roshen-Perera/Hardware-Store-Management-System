@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemModel {
-    private String splitItemID(String currentEmployeeID){
-        if (currentEmployeeID != null){
-            String [] split = currentEmployeeID.split("00");
+    private String splitItemID(String currentItemID){
+        if (currentItemID != null) {
+            String[] split = currentItemID.split("[I]");
 
             int id = Integer.parseInt(split[1]);
             id++;
-            return "I00" + id;
-        }else {
+            return String.format("I%03d", id);
+        } else {
             return "I001";
         }
     }

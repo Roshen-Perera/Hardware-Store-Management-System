@@ -81,32 +81,32 @@
          </font>
       </Label>
       <JFXComboBox fx:id="cmbItemCode" layoutX="90.0" layoutY="282.0" onAction="#cmbItemOnAction" prefHeight="33.0" prefWidth="183.0" />
-      <Label layoutX="339.0" layoutY="258.0" text="Description:" textFill="#0a3054">
+      <Label layoutX="464.0" layoutY="260.0" text="Description:" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblDescription" layoutX="308.0" layoutY="285.0" textFill="#278d7f">
+      <Label fx:id="lblDescription" layoutX="469.0" layoutY="285.0" textFill="#278d7f">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="519.0" layoutY="258.0" text="Unit Price:" textFill="#0a3054">
+      <Label layoutX="616.0" layoutY="259.0" text="Unit Price:" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblUnitPrice" layoutX="530.0" layoutY="285.0" textFill="#278d7f">
+      <Label fx:id="lblUnitPrice" layoutX="627.0" layoutY="285.0" textFill="#278d7f">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="696.0" layoutY="258.0" text="Qty. On Hand:" textFill="#0a3054">
+      <Label layoutX="756.0" layoutY="258.0" text="Qty. On Hand:" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="738.0" layoutY="285.0" textFill="#278d7f">
+      <Label fx:id="lblQtyOnHand" layoutX="798.0" layoutY="285.0" textFill="#278d7f">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -120,11 +120,12 @@
       <TableView fx:id="tblOrderCart" layoutX="90.0" layoutY="375.0" prefHeight="200.0" prefWidth="943.0">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Code" />
-            <TableColumn fx:id="colDescription" prefWidth="295.0" text="Description" />
-            <TableColumn fx:id="colQty" prefWidth="123.0" text="Qty" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="148.66665649414062" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="152.66668701171875" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="149.6666259765625" text="Action" />
+            <TableColumn fx:id="colItemName" prefWidth="116.33334350585938" text="Name" />
+            <TableColumn fx:id="colDescription" prefWidth="248.00003051757812" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="92.99996948242188" text="Qty" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="121.33331298828125" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="148.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="140.6666259765625" text="Action" />
          </columns>
       </TableView>
       <JFXButton fx:id="btnAddToCart" layoutX="901.0" layoutY="332.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: #3498db;" text="Add to cart" textFill="WHITE">
@@ -161,5 +162,23 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXButton layoutX="781.0" layoutY="622.0" onAction="#btnItemOrderReportOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: cyan;" text="Item Order Details" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="323.0" layoutY="260.0" text="Brand Name" textFill="#0a3054">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBrandName" layoutX="325.0" layoutY="285.0" textFill="#278d7f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

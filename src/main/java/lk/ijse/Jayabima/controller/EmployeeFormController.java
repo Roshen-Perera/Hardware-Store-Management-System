@@ -297,12 +297,12 @@ public class EmployeeFormController {
     public boolean validateEmployeeDetails() {
         boolean isValid = true;
 
-        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtName.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9\\s]*$", txtName.getText())) {
             showErrorNotification("Invalid Employee Name", "The employee name you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtRole.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9\\s]*$", txtRole.getText())) {
             showErrorNotification("Invalid Role", "The role you entered is invalid");
             isValid = false;
         }

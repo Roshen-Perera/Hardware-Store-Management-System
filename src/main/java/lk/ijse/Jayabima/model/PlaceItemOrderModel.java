@@ -17,6 +17,7 @@ public class PlaceItemOrderModel {
 
         String orderId = placeItemOrderDto.getOrderId();
         String customerId = placeItemOrderDto.getCustomerId();
+        String customerName = placeItemOrderDto.getCustomerName();
         double totalPrice = Double.parseDouble(placeItemOrderDto.getTotalPrice());
         LocalDate date = placeItemOrderDto.getDate();
 
@@ -25,7 +26,7 @@ public class PlaceItemOrderModel {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isOrderSaved = itemOrderModel.saveOrder(orderId, customerId, totalPrice, date);
+            boolean isOrderSaved = itemOrderModel.saveOrder(orderId, customerId, customerName, totalPrice, date);
             if (isOrderSaved) {
                 boolean isUpdated = itemModel.updateItem(placeItemOrderDto.getCustomerCartTmList());
                 if (isUpdated) {

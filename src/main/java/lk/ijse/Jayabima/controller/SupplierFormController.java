@@ -261,13 +261,13 @@ public class SupplierFormController {
     public boolean validateSupplierDetails() {
         boolean isValid = true;
 
-        if (!Pattern.matches("[A-Za-z]{4,}\\s+[A-Za-z]{4,}", txtName.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9\\s]*$", txtName.getText())) {
             showErrorNotification("Invalid Supplier Name", "The supplier name you entered is invalid");
             isValid = false;
 
         }
 
-        if (!Pattern.matches("[A-Za-z]{4,}\\s+[A-Za-z]{4,}", txtDescription.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9 ,.]+$", txtDescription.getText())) {
             showErrorNotification("Invalid Description", "The description you entered is invalid");
             isValid = false;
 

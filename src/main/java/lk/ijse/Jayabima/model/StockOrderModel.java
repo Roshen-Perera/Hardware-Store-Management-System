@@ -24,12 +24,12 @@ public class StockOrderModel {
     }
 
     private String splitStockOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("O0");
+        if (currentOrderId != null) {
+            String[] split = currentOrderId.split("[SO]");
 
-            int id = Integer.parseInt(split[1]); //01
+            int id = Integer.parseInt(split[1]);
             id++;
-            return "SO00" + id;
+            return String.format("SO%03d", id);
         } else {
             return "SO001";
         }

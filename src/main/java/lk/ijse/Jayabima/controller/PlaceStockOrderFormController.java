@@ -18,14 +18,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.Jayabima.db.DbConnection;
 import lk.ijse.Jayabima.dto.ItemDto;
 import lk.ijse.Jayabima.dto.PlaceStockOrderDto;
 import lk.ijse.Jayabima.dto.SupplierDto;
 import lk.ijse.Jayabima.dto.tm.CustomerCartTm;
 import lk.ijse.Jayabima.dto.tm.StockCartTm;
 import lk.ijse.Jayabima.model.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -52,6 +58,9 @@ public class PlaceStockOrderFormController {
     private TableColumn<?, ?> colDescription;
 
     @FXML
+    private TableColumn<?, ?> colBrand;
+
+    @FXML
     private TableColumn<?, ?> colItemCode;
 
     @FXML
@@ -74,6 +83,9 @@ public class PlaceStockOrderFormController {
 
     @FXML
     private Label lblSupplierName;
+
+    @FXML
+    private Label lblBrandName;
 
     @FXML
     private AnchorPane rootHome;
@@ -206,6 +218,7 @@ public class PlaceStockOrderFormController {
         txtQty.requestFocus();
         try {
             ItemDto dto = itemModel.searchItem(code);
+            lblBrandName.setText(dto.getItemName());
             lblDescription.setText(dto.getItemDesc());
             lblQtyOnHand.setText(String.valueOf(dto.getItemQty()));
         } catch (SQLException e) {
@@ -218,9 +231,10 @@ public class PlaceStockOrderFormController {
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         String code = cmbItemCode.getValue();
+        String name = lblBrandName.getText();
         String description = lblDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
-        String supID = lblSupplierName.getText();
+        String supName = lblSupplierName.getText();
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
@@ -239,7 +253,7 @@ public class PlaceStockOrderFormController {
                 }
             }
         }
-        var cartTm = new StockCartTm(code, description, qty, supID, btn);
+        var cartTm = new StockCartTm(code, name, description, qty, supName, btn);
         obList.add(cartTm);
 
         tblOrderCart.setItems(obList);
@@ -247,7 +261,7 @@ public class PlaceStockOrderFormController {
     }
 
     @FXML
-    void btnBuyNowOnAction(ActionEvent event) {
+    void btnBuyNowOnAction(ActionEvent event) throws JRException, SQLException {
         String stockOrder_id = lblOrderId.getText();
         String sup_id = cmbSupplierId.getValue();
         LocalDate stockOrder_date = LocalDate.parse(lblOrderDate.getText());

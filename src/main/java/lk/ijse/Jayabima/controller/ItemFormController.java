@@ -1,5 +1,6 @@
 package lk.ijse.Jayabima.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -12,9 +13,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.Jayabima.dto.ItemDto;
+import lk.ijse.Jayabima.dto.SupplierDto;
 import lk.ijse.Jayabima.dto.tm.CustomerTm;
 import lk.ijse.Jayabima.dto.tm.ItemTm;
+import lk.ijse.Jayabima.dto.tm.StockCartTm;
+import lk.ijse.Jayabima.dto.tm.SupplierTm;
 import lk.ijse.Jayabima.model.ItemModel;
+import lk.ijse.Jayabima.model.SupplierModel;
 import org.controlsfx.control.Notifications;
 
 import java.sql.SQLException;
@@ -38,7 +43,13 @@ public class ItemFormController {
     private TextField txtItemQty;
 
     @FXML
-    private TextField txtItemSupplierId;
+    private JFXComboBox<String> cmdSupplierId;
+
+    @FXML
+    private Label lblSupplierName;
+
+    @FXML
+    private Label lblSupplierId;
 
     @FXML
     private TextField txtItemUnitPrice;
@@ -76,7 +87,9 @@ public class ItemFormController {
     @FXML
     private Label lblTime;
 
-    ItemModel itemModel = new ItemModel();
+    private ItemModel itemModel = new ItemModel();
+
+    private SupplierModel supplierModel = new SupplierModel();
 
     public void initialize() {
         loadAllItems();
@@ -84,6 +97,22 @@ public class ItemFormController {
         generateNextItemID();
         tableListener();
         setDateAndTime();
+        loadSupplierIds();
+    }
+
+    private void loadSupplierIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<SupplierDto> idList = supplierModel.getAllSupplier();
+
+            for (SupplierDto dto : idList) {
+                obList.add(dto.getSupId());
+            }
+            cmdSupplierId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void setDateAndTime(){
@@ -118,7 +147,7 @@ public class ItemFormController {
 
     private void tableListener() {
         tblItem.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-//            System.out.println(newValue);
+            System.out.println(newValue);
             setData(newValue);
         });
     }
@@ -129,7 +158,11 @@ public class ItemFormController {
         txtItemDesc.setText(row.getItemDesc());
         txtItemQty.setText(String.valueOf(row.getItemQty()));
         txtItemUnitPrice.setText(String.valueOf(row.getItemUnitPrice()));
-        txtItemSupplierId.setText(row.getSupplierId());
+        lblSupplierId.setText(row.getSupplierId());
+    }
+
+    private void setData2(SupplierTm row){
+        lblSupplierName.setText(row.getSupName());
     }
     private void clearFields() {
         txtItemCode.setText("");
@@ -137,7 +170,8 @@ public class ItemFormController {
         txtItemDesc.setText("");
         txtItemQty.setText("");
         txtItemUnitPrice.setText("");
-        txtItemSupplierId.setText("");
+        lblSupplierId.setText("");
+        lblSupplierName.setText("");
     }
 
     private void setCellValueFactory() {
@@ -147,6 +181,7 @@ public class ItemFormController {
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("itemUnitPrice"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("itemQty"));
         colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+
     }
 
     private void loadAllItems() {
@@ -181,7 +216,7 @@ public class ItemFormController {
         String item_desc = txtItemDesc.getText();
         int item_qty = Integer.parseInt(txtItemQty.getText());
         double item_unitPrice = Double.parseDouble(txtItemUnitPrice.getText());
-        String supplierId = txtItemSupplierId.getText();
+        String supplierId = lblSupplierId.getText();
 
 
         try {
@@ -234,7 +269,7 @@ public class ItemFormController {
                 txtItemDesc.setText(itemDto.getItemDesc());
                 txtItemQty.setText(String.valueOf(itemDto.getItemQty()));
                 txtItemUnitPrice.setText(String.valueOf(itemDto.getItemUnitPrice()));
-                txtItemSupplierId.setText(itemDto.getSupplierId());
+                lblSupplierId.setText(itemDto.getSupplierId());
             }else {
                 new Alert(Alert.AlertType.INFORMATION, "Customer Saved").show();
             }
@@ -252,7 +287,7 @@ public class ItemFormController {
         String item_desc = txtItemDesc.getText();
         int item_qty = Integer.parseInt(txtItemQty.getText());
         double item_unitPrice = Double.parseDouble(txtItemUnitPrice.getText());
-        String supplierId = txtItemSupplierId.getText();
+        String supplierId = lblSupplierId.getText();
 
         try {
             if(!validateItemDetails()) {
@@ -273,15 +308,30 @@ public class ItemFormController {
         }
 
     }
+
+    @FXML
+    void cmbSupplierOnAction(ActionEvent event) {
+        String id = cmdSupplierId.getValue();
+//        CustomerModel customerModel = new CustomerModel();
+        try {
+            SupplierDto supplierDto = supplierModel.searchSupplier(id);
+            lblSupplierId.setText(supplierDto.getSupId());
+            lblSupplierName.setText(supplierDto.getSupName());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean validateItemDetails() {
         boolean isValid = true;
 
-        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtItemName.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9\\s]*$", txtItemName.getText())) {
             showErrorNotification("Invalid Item Name", "The item name you entered is invalid");
             isValid = false;
         }
 
-        if (!Pattern.matches("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b", txtItemDesc.getText())) {
+        if (!Pattern.matches("^[a-zA-Z0-9 ,.]+$", txtItemDesc.getText())) {
             showErrorNotification("Invalid Description", "The description you entered is invalid");
             isValid = false;
         }
@@ -293,11 +343,6 @@ public class ItemFormController {
 
         if (!Pattern.matches("^[0-9]+\\.?[0-9]*$", txtItemUnitPrice.getText())) {
             showErrorNotification("Invalid Salary", "The salary you entered is invalid");
-            isValid = false;
-        }
-
-        if (!Pattern.matches("S\\d{3,}", txtItemSupplierId.getText())) {
-            showErrorNotification("Invalid address", "The address you entered is invalid");
             isValid = false;
         }
         return isValid;

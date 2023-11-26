@@ -12,13 +12,13 @@ import java.util.List;
 
 public class CustomerModel {
     private String splitCustomerID(String currentCustomerID){
-        if (currentCustomerID != null){
-            String [] split = currentCustomerID.split("00");
+        if (currentCustomerID != null) {
+            String[] split = currentCustomerID.split("[C]");
 
             int id = Integer.parseInt(split[1]);
             id++;
-            return "C00" + id;
-        }else {
+            return String.format("C%03d", id);
+        } else {
             return "C001";
         }
     }

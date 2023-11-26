@@ -19,7 +19,7 @@
                   <Font name="FreeSans Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="cuslbl" layoutX="33.0" layoutY="41.0" prefHeight="73.0" prefWidth="77.0" textFill="WHITE">
+            <Label fx:id="cuslbl" layoutX="5.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="50.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Font name="FreeSans Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="emplbl" layoutX="31.0" layoutY="36.0" prefHeight="73.0" prefWidth="77.0" textFill="WHITE">
+            <Label fx:id="emplbl" layoutX="7.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="50.0" />
                </font>

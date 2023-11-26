@@ -20,26 +20,27 @@ public class ItemOrderModel {
     }
 
     private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("O0");
+        if (currentOrderId != null) {
+            String[] split = currentOrderId.split("[IO]");
 
-            int id = Integer.parseInt(split[1]); //01
+            int id = Integer.parseInt(split[1]);
             id++;
-            return "O00" + id;
+            return String.format("IO%03d", id);
         } else {
-            return "O001";
+            return "IO001";
         }
     }
 
-    public boolean saveOrder(String order_id, String cus_id, double totalPrice, LocalDate date) throws SQLException {
+    public boolean saveOrder(String order_id, String cus_id, String cus_name, double totalPrice, LocalDate date) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO orders VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO orders VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, order_id);
         pstm.setString(2, cus_id);
-        pstm.setString(3, String.valueOf(totalPrice));
-        pstm.setDate(4, Date.valueOf(date));
+        pstm.setString(3, cus_name);
+        pstm.setString(4, String.valueOf(totalPrice));
+        pstm.setDate(5, Date.valueOf(date));
 
         return pstm.executeUpdate() > 0;
     }

@@ -14,14 +14,14 @@ import java.util.List;
 public class EmployeeModel {
 
     private String splitEmployeeID(String currentEmployeeID){
-        if (currentEmployeeID != null){
-            String [] split = currentEmployeeID.split("00");
+        if (currentEmployeeID != null) {
+            String[] split = currentEmployeeID.split("[E]");
 
             int id = Integer.parseInt(split[1]);
             id++;
-            return "I00" + id;
-        }else {
-            return "I001";
+            return String.format("E%03d", id);
+        } else {
+            return "E001";
         }
     }
 

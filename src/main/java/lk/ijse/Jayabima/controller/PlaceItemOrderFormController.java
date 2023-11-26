@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Jayabima.db.DbConnection;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.dto.ItemDto;
 import lk.ijse.Jayabima.dto.PlaceItemOrderDto;
@@ -22,8 +23,13 @@ import lk.ijse.Jayabima.model.CustomerModel;
 import lk.ijse.Jayabima.model.ItemModel;
 import lk.ijse.Jayabima.model.ItemOrderModel;
 import lk.ijse.Jayabima.model.PlaceItemOrderModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -51,6 +57,9 @@ public class PlaceItemOrderFormController {
     private TableColumn<?, ?> colItemCode;
 
     @FXML
+    private TableColumn<?, ?> colItemName;
+
+    @FXML
     private TableColumn<?, ?> colQty;
 
     @FXML
@@ -61,6 +70,9 @@ public class PlaceItemOrderFormController {
 
     @FXML
     private Label lblCustomerName;
+
+    @FXML
+    private Label lblBrandName;
 
     @FXML
     private Label lblDate;
@@ -136,6 +148,7 @@ public class PlaceItemOrderFormController {
 
     private void setCellValueFactory() {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        colItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
@@ -146,6 +159,7 @@ public class PlaceItemOrderFormController {
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         String code = cmbItemCode.getValue();
+        String name = lblBrandName.getText();
         String description = lblDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(lblUnitPrice.getText());
@@ -169,7 +183,7 @@ public class PlaceItemOrderFormController {
                 }
             }
         }
-        var cartTm = new CustomerCartTm(code, description, qty, unitPrice, tot, btn);
+        var cartTm = new CustomerCartTm(code, name, description, qty, unitPrice, tot, btn);
         obList.add(cartTm);
 
         tblOrderCart.setItems(obList);
@@ -189,10 +203,11 @@ public class PlaceItemOrderFormController {
     }
 
     @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
+    void btnPlaceOrderOnAction(ActionEvent event) throws JRException, SQLException {
         String orderId = lblOrderId.getText();
         LocalDate date = LocalDate.parse(lblOrderDate.getText());
         String customerId = cmbCustomerId.getValue();
+        String customerName = lblCustomerName.getText();
         String totalPrice = String.valueOf(calculateTotal());
 
         List<CustomerCartTm> customerCartTmList = new ArrayList<>();
@@ -203,7 +218,7 @@ public class PlaceItemOrderFormController {
         }
 
         System.out.println("Place order form controller: " + customerCartTmList);
-        var placeOrderDto = new PlaceItemOrderDto(orderId,customerId, totalPrice, date, customerCartTmList);
+        var placeOrderDto = new PlaceItemOrderDto(orderId,customerId, customerName, totalPrice, date, customerCartTmList);
         try {
             boolean isSuccess = placeItemOrderModel.placeOrder(placeOrderDto);
             if (isSuccess) {
@@ -212,6 +227,15 @@ public class PlaceItemOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        /*InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Invoice.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint, false);*/
     }
 
     private void setDate() {
@@ -238,6 +262,7 @@ public class PlaceItemOrderFormController {
         txtQty.requestFocus();
         try {
             ItemDto dto = itemModel.searchItem(code);
+            lblBrandName.setText(dto.getItemName());
             lblDescription.setText(dto.getItemDesc());
             lblUnitPrice.setText(String.valueOf(dto.getItemUnitPrice()));
             lblQtyOnHand.setText(String.valueOf(dto.getItemQty()));
@@ -291,4 +316,16 @@ public class PlaceItemOrderFormController {
         return total;
     }
 
+    @FXML
+    void btnItemOrderReportOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/itemorderdetail.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint, false);
+    }
 }
