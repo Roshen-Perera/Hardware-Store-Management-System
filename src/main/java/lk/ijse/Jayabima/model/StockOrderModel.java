@@ -24,15 +24,21 @@ public class StockOrderModel {
     }
 
     private String splitStockOrderId(String currentOrderId) {
-        if (currentOrderId != null) {
-            String[] split = currentOrderId.split("[SO]");
+        if (currentOrderId != null && currentOrderId.matches("SO\\d{3}")) {
+            String[] split = currentOrderId.split("SO");
 
-            int id = Integer.parseInt(split[1]);
-            id++;
-            return String.format("SO%03d", id);
-        } else {
-            return "SO001";
+            try {
+                int id = Integer.parseInt(split[1]);
+                id++;
+                return String.format("SO%03d", id);
+            } catch (NumberFormatException e) {
+                // Handle the case where the numeric part is not a valid integer
+                e.printStackTrace();  // You may want to log or handle the exception appropriately
+            }
         }
+
+        // Default case if input is null or does not match the expected format
+        return "SO001";
     }
     public boolean saveStockOrder(String order_id, String cus_id, LocalDate date) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -44,25 +50,6 @@ public class StockOrderModel {
         pstm.setDate(3, Date.valueOf(date));
 
         return pstm.executeUpdate() > 0;
-    }
-    public List<StockOrderDetailDto> getAllStockDetails() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-        String sql = "select * from stock_order";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        ResultSet rs = pstm.executeQuery();
-
-        ArrayList<StockOrderDetailDto> dtoList = new ArrayList<>();
-        while (rs.next()) {
-            dtoList.add(
-                    new StockOrderDetailDto(
-                            rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3)
-                    )
-            );
-        }
-        return dtoList;
-
     }
 }
 

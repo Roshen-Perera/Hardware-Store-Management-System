@@ -106,7 +106,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="891.0" layoutY="296.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" />
+      <TextField fx:id="txtQty" alignment="CENTER" layoutX="891.0" layoutY="296.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" stylesheets="@../style/login.css">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <TableView fx:id="tblOrderCart" layoutX="100.0" layoutY="385.0" prefHeight="200.0" prefWidth="943.0">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="125.0" text="Code" />
@@ -138,7 +141,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <JFXButton layoutX="924.0" layoutY="632.0" onAction="#btnBuyNowOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Buy Now" textFill="WHITE">
+      <JFXButton layoutX="957.0" layoutY="632.0" onAction="#btnBuyNowOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Buy Now" textFill="#f6e8d4">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -146,7 +149,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="789.0" layoutY="632.0" onAction="#btnStockOrderDetailsOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Stock Details" textFill="WHITE">
+      <JFXButton layoutX="824.0" layoutY="632.0" onAction="#btnStockOrderDetailsOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #f6e8d4;" text="Stock Details" textFill="#0a3054">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

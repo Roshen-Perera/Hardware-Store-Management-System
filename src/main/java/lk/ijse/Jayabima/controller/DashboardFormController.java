@@ -20,14 +20,24 @@ import java.util.Arrays;
 
 public class DashboardFormController {
 
-    @FXML
-    private Label cuslbl;
 
     @FXML
-    private Label emplbl;
+    private Label lblCustomer;
 
     @FXML
     private Label lblDate;
+
+    @FXML
+    private Label lblEmployee;
+
+    @FXML
+    private Label lblItemOrders;
+
+    @FXML
+    private Label lblStockOrders;
+
+    @FXML
+    private Label lblSupplier;
 
     @FXML
     private Label lblTime;
@@ -38,6 +48,9 @@ public class DashboardFormController {
         setDateAndTime();
         countCustomer();
         countEmployee();
+        countSupplier();
+        countStockOrder();
+        countItemOrder();
     }
     private void setDateAndTime(){
         Platform.runLater(() -> {
@@ -63,7 +76,7 @@ public class DashboardFormController {
         //Retrieving the result
         rs.next();
         int count = rs.getInt(1);
-        cuslbl.setText(String.valueOf(count));
+        lblCustomer.setText(String.valueOf(count));
 
     }
 
@@ -77,6 +90,45 @@ public class DashboardFormController {
         //Retrieving the result
         rs.next();
         int count = rs.getInt(1);
-        emplbl.setText(String.valueOf(count));
+        lblEmployee.setText(String.valueOf(count));
+    }
+
+    private void countSupplier() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        Statement stmt = connection.createStatement();
+        //Query to get the number of rows in a table
+        String query = "select count(*) from supplier";
+        //Executing the query
+        ResultSet rs = stmt.executeQuery(query);
+        //Retrieving the result
+        rs.next();
+        int count = rs.getInt(1);
+        lblSupplier.setText(String.valueOf(count));
+    }
+
+    private void countStockOrder() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        Statement stmt = connection.createStatement();
+        //Query to get the number of rows in a table
+        String query = "select count(*) from stock_order";
+        //Executing the query
+        ResultSet rs = stmt.executeQuery(query);
+        //Retrieving the result
+        rs.next();
+        int count = rs.getInt(1);
+        lblStockOrders.setText(String.valueOf(count));
+    }
+
+    private void countItemOrder() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        Statement stmt = connection.createStatement();
+        //Query to get the number of rows in a table
+        String query = "select count(*) from orders";
+        //Executing the query
+        ResultSet rs = stmt.executeQuery(query);
+        //Retrieving the result
+        rs.next();
+        int count = rs.getInt(1);
+        lblItemOrders.setText(String.valueOf(count));
     }
 }

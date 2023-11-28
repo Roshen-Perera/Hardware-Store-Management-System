@@ -20,15 +20,21 @@ public class ItemOrderModel {
     }
 
     private String splitOrderId(String currentOrderId) {
-        if (currentOrderId != null) {
-            String[] split = currentOrderId.split("[IO]");
+        if (currentOrderId != null && currentOrderId.matches("IO\\d{3}")) {
+            String[] split = currentOrderId.split("IO");
 
-            int id = Integer.parseInt(split[1]);
-            id++;
-            return String.format("IO%03d", id);
-        } else {
-            return "IO001";
+            try {
+                int id = Integer.parseInt(split[1]);
+                id++;
+                return String.format("IO%03d", id);
+            } catch (NumberFormatException e) {
+                // Handle the case where the numeric part is not a valid integer
+                e.printStackTrace();  // You may want to log or handle the exception appropriately
+            }
         }
+
+        // Default case if input is null or does not match the expected format
+        return "IO001";
     }
 
     public boolean saveOrder(String order_id, String cus_id, String cus_name, double totalPrice, LocalDate date) throws SQLException {

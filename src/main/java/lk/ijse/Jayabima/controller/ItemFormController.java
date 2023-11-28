@@ -161,9 +161,6 @@ public class ItemFormController {
         lblSupplierId.setText(row.getSupplierId());
     }
 
-    private void setData2(SupplierTm row){
-        lblSupplierName.setText(row.getSupName());
-    }
     private void clearFields() {
         txtItemCode.setText("");
         txtItemName.setText("");
@@ -239,6 +236,7 @@ public class ItemFormController {
     @FXML
     void btnClearItemOnAction(ActionEvent event) {
         clearFields();
+        generateNextItemID();
     }
 
     @FXML

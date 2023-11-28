@@ -116,7 +116,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQty" layoutX="924.0" layoutY="285.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" />
+      <TextField fx:id="txtQty" alignment="CENTER" layoutX="924.0" layoutY="285.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="66.0" stylesheets="@../style/login.css">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <TableView fx:id="tblOrderCart" layoutX="90.0" layoutY="375.0" prefHeight="200.0" prefWidth="943.0">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="75.0" text="Code" />
@@ -144,17 +147,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblNetTotal" layoutX="178.0" layoutY="590.0" textFill="#b51313">
+      <Label fx:id="lblNetTotal" layoutX="796.0" layoutY="580.0" textFill="#b51313">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="594.0" text="Net Total:" textFill="#0a3054">
+      <Label layoutX="708.0" layoutY="584.0" text="Net Total:" textFill="#0a3054">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXButton layoutX="914.0" layoutY="622.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Place Order" textFill="WHITE">
+      <JFXButton layoutX="957.0" layoutY="632.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Place Order" textFill="#f6e8d4">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -162,7 +165,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="781.0" layoutY="622.0" onAction="#btnItemOrderReportOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: cyan;" text="Item Order Details" textFill="WHITE">
+      <JFXButton layoutX="824.0" layoutY="632.0" onAction="#btnItemOrderReportOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #f6e8d4;" text="Item Order Details" textFill="#0a3054">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

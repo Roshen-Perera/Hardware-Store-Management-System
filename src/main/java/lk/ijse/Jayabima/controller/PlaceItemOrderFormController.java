@@ -188,6 +188,8 @@ public class PlaceItemOrderFormController {
 
         tblOrderCart.setItems(obList);
         txtQty.clear();
+
+        calculateTotal();
     }
 
     @FXML
