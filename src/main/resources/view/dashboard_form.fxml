@@ -12,30 +12,16 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="40.0" layoutY="122.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: #2980b9; -fx-background-radius: 20;">
+      <AnchorPane layoutX="60.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2980b9; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" text="Total Customers" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Customers" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblCustomer" layoutX="5.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="lblCustomer" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="240.0" layoutY="122.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: rgba(239, 87, 119,1.0); -fx-background-radius: 20;">
-         <children>
-            <Label layoutX="5.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" text="Total Employees" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblEmployee" layoutX="7.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
+                  <Font size="80.0" />
                </font>
             </Label>
          </children>
@@ -61,44 +47,72 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="440.0" layoutY="121.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: #27ae60; -fx-background-radius: 20;">
+      <AnchorPane layoutX="420.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="6.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" text="Total Suppliers" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Suppliers" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblSupplier" layoutX="5.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="lblSupplier" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="50.0" />
+                  <Font size="80.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="121.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 20;">
+      <AnchorPane layoutX="780.0" layoutY="420.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d35400; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" text="Total Item Orders" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Item Orders" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblItemOrders" layoutX="7.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="lblStockOrders" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="50.0" />
+                  <Font size="80.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="840.0" layoutY="122.0" prefHeight="139.0" prefWidth="139.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 20;">
+      <AnchorPane layoutX="780.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 20;">
          <children>
-            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" text="Total Stock Orders" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Employees" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblStockOrders" layoutX="5.0" layoutY="40.0" prefHeight="73.0" prefWidth="127.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="lblEmployee" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="50.0" />
+                  <Font size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="420.0" layoutY="420.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Stock Orders" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblItemOrders" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="80.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="60.0" layoutY="420.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="7.0" layoutY="4.0" prefHeight="32.0" prefWidth="178.0" stylesheets="@../style/dashboard.css" text="Total Items" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblItems" layoutX="1.0" layoutY="39.0" prefHeight="143.0" prefWidth="200.0" stylesheets="@../style/dashboard.css" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="80.0" />
                </font>
             </Label>
          </children>

@@ -31,6 +31,9 @@ public class DashboardFormController {
     private Label lblEmployee;
 
     @FXML
+    private Label lblItems;
+
+    @FXML
     private Label lblItemOrders;
 
     @FXML
@@ -49,6 +52,7 @@ public class DashboardFormController {
         countCustomer();
         countEmployee();
         countSupplier();
+        countItem();
         countStockOrder();
         countItemOrder();
     }
@@ -104,6 +108,19 @@ public class DashboardFormController {
         rs.next();
         int count = rs.getInt(1);
         lblSupplier.setText(String.valueOf(count));
+    }
+
+    private void countItem() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        Statement stmt = connection.createStatement();
+        //Query to get the number of rows in a table
+        String query = "select sum(item_qty) from item";
+        //Executing the query
+        ResultSet rs = stmt.executeQuery(query);
+        //Retrieving the result
+        rs.next();
+        int count = rs.getInt(1);
+        lblItems.setText(String.valueOf(count));
     }
 
     private void countStockOrder() throws SQLException {

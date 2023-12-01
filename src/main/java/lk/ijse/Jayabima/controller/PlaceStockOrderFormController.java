@@ -26,6 +26,7 @@ import lk.ijse.Jayabima.dto.tm.CustomerCartTm;
 import lk.ijse.Jayabima.dto.tm.StockCartTm;
 import lk.ijse.Jayabima.model.*;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -301,15 +302,7 @@ public class PlaceStockOrderFormController {
     }
     @FXML
     void btnStockOrderDetailsOnAction(ActionEvent event) throws IOException, JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/stockorderdetail.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint, false);
+
 
         /*Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/stockorderdetail_form.fxml"));
         Scene scene = new Scene(anchorPane);

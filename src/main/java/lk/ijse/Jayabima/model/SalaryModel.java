@@ -37,9 +37,10 @@ public class SalaryModel {
         String sql = "update salary set salary_amount = ?, salary_status = ? where emp_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getId());
-        pstm.setString(2, dto.getSalary());
-        pstm.setString(3, dto.getStatus());
+
+        pstm.setString(1, dto.getSalary());
+        pstm.setString(2, dto.getStatus());
+        pstm.setString(3, dto.getId());
 
         return pstm.executeUpdate() > 0;
     }

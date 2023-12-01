@@ -2,6 +2,9 @@ package lk.ijse.Jayabima.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.Jayabima.db.DbConnection;
 import lk.ijse.Jayabima.dto.CustomerDto;
 import lk.ijse.Jayabima.dto.ItemDto;
@@ -24,6 +28,7 @@ import lk.ijse.Jayabima.model.ItemModel;
 import lk.ijse.Jayabima.model.ItemOrderModel;
 import lk.ijse.Jayabima.model.PlaceItemOrderModel;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -32,9 +37,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class PlaceItemOrderFormController {
 
@@ -119,6 +124,21 @@ public class PlaceItemOrderFormController {
         generateNextOrderId();
         loadItemCodes();
         loadCustomerIds();
+        setDateAndTime();
+    }
+
+    private void setDateAndTime(){
+        Platform.runLater(() -> {
+            lblDate.setText(String.valueOf(LocalDate.now()));
+
+            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1), event -> {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+                String timeNow = LocalTime.now().format(formatter);
+                lblTime.setText(timeNow);
+            }));
+            timeline.setCycleCount(Timeline.INDEFINITE);
+            timeline.play();
+        });
     }
 
     private void loadCustomerIds() {
@@ -229,15 +249,6 @@ public class PlaceItemOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        /*InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Invoice.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint, false);*/
     }
 
     private void setDate() {
@@ -320,14 +331,22 @@ public class PlaceItemOrderFormController {
 
     @FXML
     void btnItemOrderReportOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/itemorderdetail.jrxml");
+
+        String orderId = lblOrderId.getText();
+        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Invoice.jrxml");
         JasperDesign load = JRXmlLoader.load(resourceAsStream);
+
+        // Set parameters for the report
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("order_id", orderId);
+
         JasperReport jasperReport = JasperCompileManager.compileReport(load);
         JasperPrint jasperPrint = JasperFillManager.fillReport(
                 jasperReport,
-                null,
+                parameters,
                 DbConnection.getInstance().getConnection()
         );
         JasperViewer.viewReport(jasperPrint, false);
     }
+
 }
