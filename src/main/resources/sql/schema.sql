@@ -90,6 +90,7 @@ create table ItemOrder_detail(
     item_desc varchar(30),
     item_qty int,
     unit_price double,
+    total_price double,
     foreign key(order_id)references Orders(order_id)on update cascade on delete cascade,
     foreign key(item_id)references Item(item_id)on update cascade on delete cascade
 );
