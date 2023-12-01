@@ -94,7 +94,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="tblEmployee" layoutX="47.0" layoutY="377.0" prefHeight="283.0" prefWidth="1051.0">
+      <TableView fx:id="tblEmployee" layoutX="47.0" layoutY="377.0" prefHeight="268.0" prefWidth="1051.0">
          <columns>
             <TableColumn fx:id="colId" prefWidth="175.0" text="ID" />
             <TableColumn fx:id="colName" minWidth="8.0" prefWidth="175.0" text="Name" />
@@ -153,6 +153,11 @@
          </font>
       </Label>
       <JFXButton layoutX="972.0" layoutY="325.0" onAction="#btnSalaryDetailsOnAction" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: purple;" text="Salary Details" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1026.0" layoutY="652.0" onAction="#btnGetReportOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #8e44ad;" text="Print" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

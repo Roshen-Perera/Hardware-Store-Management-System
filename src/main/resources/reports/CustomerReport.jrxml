@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CustomerReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e476fd4f-4a82-446c-9bfe-6df94f1886f3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Jayabima Adapter"/>
+	<queryString language="SQL">
+		<![CDATA[select * from customer;]]>
+	</queryString>
+	<field name="cus_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cus_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="cus_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="cus_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cus_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="cus_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="cus_address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cus_address"/>
+		<property name="com.jaspersoft.studio.field.label" value="cus_address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<field name="cus_mobile" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cus_mobile"/>
+		<property name="com.jaspersoft.studio.field.label" value="cus_mobile"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+	</field>
+	<group name="cus_id">
+		<groupExpression><![CDATA[$F{cus_id}]]></groupExpression>
+	</group>
+	<group name="cus_name">
+		<groupExpression><![CDATA[$F{cus_name}]]></groupExpression>
+	</group>
+	<group name="cus_address">
+		<groupExpression><![CDATA[$F{cus_address}]]></groupExpression>
+	</group>
+	<group name="cus_mobile">
+		<groupExpression><![CDATA[$F{cus_mobile}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="15" width="290" height="44" uuid="a7e53c50-bce1-4315-b54c-934d33a1d005"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="80" height="30" uuid="bc2cee5c-c84e-48d9-9f2e-c39fff927cd2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f595878e-262a-4517-9acb-a88197b6bdc5"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cus_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="58f6377b-741b-4119-af1e-c4610bfcac58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e25664f2-74eb-43b7-8112-4801a33d68de"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cus_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="30" uuid="368756b4-8be7-4fee-8898-fe6e4a5ae07a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3d0daea-b20e-4899-b1dd-0a9fb552f511"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cus_address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="30" uuid="c0cb0761-548d-4f93-b83f-55fed474a3da">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="275a7b1e-6e70-4895-8704-5d52ee223abf"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cus_mobile]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="80" height="30" uuid="cb2762de-dfa3-4428-b5e2-ffd182815f72">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f595878e-262a-4517-9acb-a88197b6bdc5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cus_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="30" uuid="bb3357e2-b869-4826-875d-ab76e249a181">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e25664f2-74eb-43b7-8112-4801a33d68de"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cus_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="087bccca-6274-49e3-b5e8-0216e2180b76">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3d0daea-b20e-4899-b1dd-0a9fb552f511"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cus_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="30" uuid="f2b3aa69-ab16-4a9d-83c1-aa18af19645f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="275a7b1e-6e70-4895-8704-5d52ee223abf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cus_mobile}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

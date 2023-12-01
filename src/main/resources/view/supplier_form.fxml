@@ -130,5 +130,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <JFXButton layoutX="1040.0" layoutY="655.0" onAction="#btnGetReportOnAction" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #8e44ad;" text="Print" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
