@@ -245,6 +245,7 @@ public class PlaceItemOrderFormController {
             boolean isSuccess = placeItemOrderModel.placeOrder(placeOrderDto);
             if (isSuccess) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Order Success!").show();
+                generateReciept();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -331,7 +332,19 @@ public class PlaceItemOrderFormController {
 
     @FXML
     void btnItemOrderReportOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/itemorderdetail.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
 
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint, false);
+    }
+
+    private void generateReciept() throws JRException, SQLException {
         String orderId = lblOrderId.getText();
         InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Invoice.jrxml");
         JasperDesign load = JRXmlLoader.load(resourceAsStream);
@@ -348,5 +361,4 @@ public class PlaceItemOrderFormController {
         );
         JasperViewer.viewReport(jasperPrint, false);
     }
-
 }

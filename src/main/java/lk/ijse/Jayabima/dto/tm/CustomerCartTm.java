@@ -11,8 +11,8 @@ import lombok.*;
 @ToString
 public class CustomerCartTm {
     private String code;
-    private String description;
     private String name;
+    private String description;
     private int qty;
     private double unitPrice;
     private double tot;

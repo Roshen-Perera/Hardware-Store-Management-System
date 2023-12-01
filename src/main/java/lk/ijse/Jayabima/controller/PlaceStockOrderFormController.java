@@ -302,15 +302,15 @@ public class PlaceStockOrderFormController {
     }
     @FXML
     void btnStockOrderDetailsOnAction(ActionEvent event) throws IOException, JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/stockorderdetail.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
 
-
-        /*Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/stockorderdetail_form.fxml"));
-        Scene scene = new Scene(anchorPane);
-
-        Stage stage = new Stage();
-        stage.setTitle("Customer Manage");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();*/
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }
