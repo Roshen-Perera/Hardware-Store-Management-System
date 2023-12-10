@@ -44,7 +44,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderId" layoutX="185.0" layoutY="149.0" textFill="#278d7f">
+      <Label fx:id="lblOrderId" layoutX="185.0" layoutY="149.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderDate" layoutX="888.0" layoutY="149.0" textFill="#278d7f">
+      <Label fx:id="lblOrderDate" layoutX="888.0" layoutY="149.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -70,7 +70,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblSupplierName" layoutX="892.0" layoutY="205.0" textFill="#278d7f">
+      <Label fx:id="lblSupplierName" layoutX="892.0" layoutY="205.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -86,7 +86,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblDescription" layoutX="499.0" layoutY="298.0" textFill="#278d7f">
+      <Label fx:id="lblDescription" layoutX="499.0" layoutY="298.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -96,7 +96,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="745.0" layoutY="296.0" textFill="#278d7f">
+      <Label fx:id="lblQtyOnHand" layoutX="745.0" layoutY="296.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -136,11 +136,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblNetTotal" layoutX="188.0" layoutY="600.0" textFill="#b51313">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
       <JFXButton layoutX="957.0" layoutY="632.0" onAction="#btnBuyNowOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #0a3054;" text="Buy Now" textFill="#f6e8d4">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -162,7 +157,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblBrandName" layoutX="335.0" layoutY="298.0" textFill="#278d7f">
+      <Label fx:id="lblBrandName" layoutX="335.0" layoutY="298.0" textFill="#159947">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

@@ -20,12 +20,12 @@
                 <Image url="@../image/jayabima.png" />
             </image>
         </ImageView>
-        <Label alignment="CENTER" layoutX="759.0" prefHeight="149.0" prefWidth="543.0" text="Login to Continue" textAlignment="CENTER" textFill="#0a3054">
+        <Label alignment="CENTER" layoutX="759.0" prefHeight="149.0" prefWidth="543.0" text="Register to Continue" textAlignment="CENTER" textFill="#0a3054">
             <font>
                 <Font name="Segoe UI Bold" size="50.0" />
             </font>
         </Label>
-        <TextField fx:id="txtUserName" layoutX="871.0" layoutY="147.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a username" styleClass="text-field" stylesheets="@../style/login.css">
+        <TextField fx:id="txtUserName" layoutX="871.0" layoutY="145.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a username" styleClass="text-field" stylesheets="@../style/login.css">
             <font>
                 <Font size="25.0" />
             </font>
@@ -38,17 +38,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </JFXButton>
-        <ImageView layoutX="819.0" layoutY="153.0">
+        <ImageView layoutX="819.0" layoutY="152.0">
             <image>
                 <Image url="@../image/icons8-user-48.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="242.0">
+        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="818.0" layoutY="332.0">
             <image>
                 <Image url="@../image/icons8-password-60.png" />
             </image>
         </ImageView>
-        <PasswordField fx:id="txtPassword" layoutX="871.0" layoutY="323.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a password" stylesheets="@../style/login.css">
+        <PasswordField fx:id="txtPassword" layoutX="871.0" layoutY="325.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a password" stylesheets="@../style/login.css">
             <font>
                 <Font size="25.0" />
             </font>
@@ -66,25 +66,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
         </JFXButton>
-      <TextField fx:id="txtMobile" layoutX="871.0" layoutY="236.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a Mobile Number" styleClass="text-field" stylesheets="@../style/login.css">
+      <TextField fx:id="txtMobile" layoutX="871.0" layoutY="235.0" prefHeight="61.0" prefWidth="342.0" promptText="Enter a Mobile Number" styleClass="text-field" stylesheets="@../style/login.css">
          <font>
             <Font size="25.0" />
          </font>
       </TextField>
-      <ImageView layoutX="819.0" layoutY="334.0">
-         <image>
-            <Image url="@../image/icons8-user-48.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="423.0">
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="422.0">
          <image>
             <Image url="@../image/icons8-password-60.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="txtRepeatPassword" layoutX="871.0" layoutY="417.0" prefHeight="61.0" prefWidth="342.0" promptText="Retype the password" stylesheets="@../style/login.css">
+      <PasswordField fx:id="txtRepeatPassword" layoutX="871.0" layoutY="415.0" prefHeight="61.0" prefWidth="342.0" promptText="Retype the password" stylesheets="@../style/login.css">
          <font>
             <Font size="25.0" />
          </font>
       </PasswordField>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="819.0" layoutY="242.0">
+         <image>
+            <Image url="@../image/icons8-phone-50.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
